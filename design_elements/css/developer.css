@@ -1,0 +1,439 @@
+ /*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Author     : pritesh
+*/
+
+.prit_items ul li {
+    list-style: disc;
+}
+.carousel-inner .item,.remove-left-padding{
+    padding-left: 0px;
+}
+.carousel-inner .item li{
+    list-style: outside;
+}
+
+ 
+.mobilelayout { display: table; }
+
+.mobilelayout .col-sm-7 { display: table-header-group; }
+@media (max-width: 767px) {
+    .div-table-header{ display: table-header-group; }
+    .div-table-footer{ display: table-footer-group; }
+/*    .carousel-inner .item{
+        margin-left: 16%;
+    }*/
+    .single-blog-post{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    .mainmenu.pull-left{
+        z-index: 1000;
+    }
+    .nav.navbar-nav {
+        z-index: 900;
+    }
+    .nav.navbar-nav.navbar-collapse.in > li{
+        z-index: 500;
+    }
+    .mainmenu ul li{
+        background: rgb(240, 240, 233) none repeat scroll 0 0;
+    }
+    .mainmenu ul li a{
+        color: #696763;
+    }
+    .shop-menu .nav.navbar-nav > li{
+        padding-right: 5px;
+    }
+}
+
+
+
+
+.highlighttext{
+    font-weight: bold;
+    color: #9933ff;
+    font-size: 15px;
+}
+
+.callforpaper{
+    width: 100%;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+
+.alert-danger,.alert-error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+@media (min-width: 768px) {
+    .menustyle{
+        background: #f0f0e9 none repeat scroll 0 0;
+        padding-top: 10px;   
+    }
+    .sub-menu > li:hover {
+        background: #4da8fe none repeat scroll 0 0;
+        color: #fff;
+    }
+    .navbar-nav li ul.sub-menu li {
+        padding: 5px 20px;
+    }
+    .navbar-nav li ul.sub-menu li a:hover {
+        color: #fff;
+    }
+    .mainmenu ul li{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+.header-middle .container .row{
+    border-bottom: none;
+    padding-bottom: 0;
+    padding-top: 2px;
+}
+.mennucontainer{
+    padding-left: 0px;
+}
+.bottomnav li.active a, .bottomnav li.active a:hover, .bottomnav li.active a:focus{
+    background-color: transparent;
+    border-radius: 4px 4px 0 0;
+}
+
+.bottomnav li.active a, .bottomnav li.active a:hover,.bottomnav li.active a:focus{
+    background-color: #eee;
+}
+.publications{
+    border-radius: 4px 4px 0 0;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 30px;
+    min-height: 83px;
+}
+.sliderrow{
+    margin-bottom: 20px;
+}
+.publicationsrow{
+    margin-bottom: 20px;
+}
+
+.grdlogo{
+    padding-top: 45px;
+}
+.sitetitle{
+    font-family: abel;
+}
+
+.blog-post-area ul li {
+    list-style: outside none disc;
+}
+
+.glowbutton {
+  background-color: #4da8fe;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+@keyframes glowing {
+  0% { background-color: #4da8fe; box-shadow: 0 0 3px #4da8fe; }
+  50% { background-color: #0094FF; box-shadow: 0 0 10px #0094FF; }
+  100% { background-color: #4da8fe; box-shadow: 0 0 3px #4da8fe; }
+}
+
+.glowbutton {
+  animation: glowing 1500ms infinite;
+}
+.table-vcenter td,.table-vcenter th {
+   vertical-align: middle!important;
+}
+.grdpost *{
+    color: #363432;
+    margin: 0 0 10px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-align: justify;
+    font-family: Arial;
+    line-height: 1.42857;
+}
+
+#grdjesubmit .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.publications{
+    text-align: center;
+}
+
+.cart_delete a{
+    color:	#333;
+}
+.cart_delete a:hover{
+    color:	#fff;
+}
+.citation-hide{display: none;}
+a.cart_quantity_delete{text-decoration: none}
+.archive-title{font-weight: bold}
+
+.article-table .success td{
+    background: #f0f0e9 none repeat scroll 0 0 !important;
+}
+
+.cart_info table{
+    margin-bottom: 0px;
+}
+.top-scroll-advert{
+    width: 75%;
+}
+
+
+/**marquee**/
+/* Make it a marquee */
+.xmarquee {
+    /*width: 450px;*/
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: xmarquee 50s linear infinite;
+}
+
+.xmarquee:hover {
+    animation-play-state: paused
+}
+
+/* Make it move */
+@keyframes xmarquee {
+    0%   { text-indent: 27.5em }
+    100% { text-indent: -105em }
+}
+/* Make it pretty */
+.xmicrosoft {
+    padding-left: 1.5em;
+    position: relative;
+    font: 16px 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+}
+
+/* ::before was :before before ::before was ::before - kthx */
+.xmicrosoft:before, .xmicrosoft::before {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    top: -1em; left: -1em;
+    width: .5em; height: .5em;
+   /* box-shadow: 1.0em 1.25em 0 #F65314,
+    1.6em 1.25em 0 #7CBB00,
+    1.0em 1.85em 0 #00A1F1,
+    1.6em 1.85em 0 #FFBB00;*/
+}
+
+.xmicrosoft:after, .xmicrosoft::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2em; height: 2em;
+    background-image: linear-gradient(90deg, white 70%, rgba(255,255,255,0));
+}
+
+/**marquee**/
+
+.col-sm-5.openaccess a {
+    display: inline-block;
+    padding-bottom: 7px;
+    width: 100%;
+}
+
+.prit-colored-border table tr{
+    border: 1px solid #323300 !important;
+}
+
+@media (min-width: 768px){
+    .header-issn{
+        margin-top: 30px;
+        padding-right: 0;
+    }
+}
+.header-issn{
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    /*max-height: 300px;*/
+}
+.header-bottom{padding-bottom: 20px;padding-top: 20px;}
+.left-sidebar h2, .brands_products h2{margin-bottom: 10px;}
+.padding-bottom-20{padding-bottom: 20px;}
+.nav > li > a.alert{margin-bottom: 0px;}
+.brands-name .nav-stacked li a{text-transform: none;}
+.left-sidebar h2, .brands_products h2{font-size: 14px;}
+.blueboxshadow .nav-stacked > li{padding: 0 10px;}
+.brands-name .nav-stacked li a.alert-info {background-color: #d9edf7;}
+.roundbutton{
+    background-color: #4da8fe;
+    border: 0 none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 14px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.text-centered{text-align: center;}
+.mennucontainer.container.pull-left{
+    min-width: 100%;
+    padding-right: 0;
+    width: auto;
+}
+@media (max-width: 991px) {
+    .callforpaper td, .callforpaper th{
+        display: block;
+    }
+    .callforpaper colgroup{
+        display: none;
+    }
+}
+.publications .bottomnav img{
+    height: 55px;
+    width: 100%;
+    max-width: 128px;
+}
+.howtopublish-center{
+    margin-left: 11%;
+    margin-right: 11%;
+}
+.nav-tabs > li.issn-grdje-nav{
+    float: right;
+}
+.issn-grdje-nav a{text-transform: none !important; padding: 10px 5px !important;}
+.category-tab ul.nav li.issn-grdje-nav a:hover{background: inherit}
+.conference-listing .college-logo{width: 100%;height: auto}
+.conference-listing .conf-right-desc .row{padding-bottom: 10px;}
+.conference-listing .conf-right-desc .row div:not(.no-text-ul ){font-weight: bold; }
+ .conference-listing .conf-right-desc .col-sm-3 {color: #4da8fe;}
+ .conference-listing .conf-right-desc .col-sm-7 {color: #333333;}
+.category-tab ul.ar-footer-nav{
+    background: #f5f5f5 none repeat scroll 0 0;
+    border-bottom: none;
+    margin: 0 0 0px;
+}
+
+.category-tab ul.ar-footer-nav li a {color: #333;}
+.article-list-tab{
+    border: 1px solid #323300 !important;
+    padding-bottom: 0px;
+}
+.article-list-tab ul.nav{
+    margin: 0px;
+}
+.article-list-tab .tab-content .tab-pane .col-sm-12{
+    padding: 10px;
+}
+.article-list-tab{margin-bottom: 15px;}
+.article-list-tab ul.ar-footer-nav li a:hover {
+    background: inherit;
+    text-decoration: underline;
+    color: #333;
+}
+#notification-modal .modal-body p {
+    font-size: 18px;
+}
+.link-full-width .panel-title a {display: block; width: 100%; text-decoration: none;}
+.float-right-no-style{float: right !important;}
+.float-right-no-style a{text-decoration: none !important;;}
+ .text-center th{text-align: center;}
+ pre{
+     word-break: unset;
+     word-wrap: unset;
+ }
+
+ #accordion > .col-sm-6{
+     margin-top: 5px;
+ }
+ .editorial-list .row{margin-top: 5px;}
+
+.progress-tooltip {
+     text-align: center;
+     font: italic normal 90% Georgia, serif;
+     line-height: 150%;
+     color: black;
+     text-shadow: white 0 1px;
+     background: #DDD;
+     background-clip: padding-box;
+     box-shadow: 0 0px 2px rgba(0, 0, 0, 0.5);
+     border: 5px solid #111;
+     border: 5px solid rgba(0, 0, 0, 0.5);
+     border-radius: 3px;
+     position: absolute;
+     width: 250px;
+     left: 50%;
+     margin-left: -125px;
+     padding: 10px 0;
+     top: 100%;
+     margin-bottom: 15px;
+     -webkit-transition: opacity 0.5s linear;
+     -moz-transition: opacity 0.5s linear;
+     -ms-transition: opacity 0.5s linear;
+     -o-transition: opacity 0.5s linear;
+     transition: opacity 0.5s linear;
+    visibility: visible;
+    opacity: 1;
+ }
+
+ .progress-tooltip:before, .progress-tooltip:after {
+     content: "";
+     position: absolute;
+     border-left: 10px solid transparent;
+     border-right: 10px solid transparent;
+     bottom: 100%;
+     left: 50%;
+     margin-left: -10px;
+ }
+
+ .progress-tooltip:before {
+     border-bottom: 10px solid #111;
+     border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+     margin-bottom: 5px;
+ }
+
+ .progress-tooltip:after{
+     border-bottom: 10px solid #DDD;
+     margin-bottom: -2px;
+     z-index: 1;
+ }
+
+ .progress-title{
+     font-weight: 300;
+ }
+ .progress-step.is-active .progress-title, .progress-step.is-complete .progress-title{
+     font-weight: 400;
+ }
+
+ .custom-progress-tracker .progress-step:hover .progress-marker {
+     background-color: #b6b6b6;
+ }
+ .progress-step.progress-mark-red .progress-marker{
+     background-color: #ff1a1a !important;
+ }

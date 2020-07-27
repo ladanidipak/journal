@@ -1,0 +1,17 @@
+
+
+Sun Apr 23 14:54:20 2017
+Command line: TestDisk
+
+TestDisk 6.13, Data Recovery Utility, November 2011
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 2.6.32-042stab120.19 (#1 SMP Mon Feb 20 20:05:53 MSK 2017) x86_64
+Compiler: GCC 4.6
+Compilation date: 2012-01-17T14:04:23
+ext2fs lib: 1.42.5, ntfs lib: 10:0:0, reiserfs lib: none, ewf lib: none
+Hard disk list
+
+No disk found
+
+TestDisk exited normally.

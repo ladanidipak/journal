@@ -1,0 +1,7 @@
+ 6.2 16.8
+find . -name certificates.zip -exec rm -rf {} \;
+find . -name certificates -exec rm -rf {} \;
+cd ar_certi/
+rm -rf *
+cd reviewer_certi/
+rm -rf *

@@ -1,0 +1,101 @@
+/* add sorting icons to gridview sort links */
+.project-list thead a:after {
+    display: inline-block;
+    font-family: fontawesome;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    padding-left: 5px;
+    text-transform: none;
+}
+.project-list thead a:after {
+    content: " \f0dc";
+}
+.project-list thead a.asc:after {
+    content: " \f0de";
+}
+
+.project-list thead a.desc:after {
+    content: " \f0dd";
+}
+
+.has-error .chosen-container-single .chosen-single{
+    border-color: #ed5565;
+}
+
+a[title="View"] span.glyphicon-eye-open::before{
+    content: " \e003";
+}
+a[title="Delete"] span.glyphicon-trash{
+    color: #ed5565;
+}
+.chosen-container-single .chosen-single div b {
+    background-position: 0 7px;
+}
+
+div.required .control-label::after{
+    content: "*";
+    color: #ed5565;
+}
+.avtarcol .img-circle{
+    margin-top: 15px;
+}
+
+.labelspace span.label{
+    margin-bottom: 5px;
+    display: block;
+    font-size: 13px;
+}
+
+.open-box{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 40px;
+    z-index: 100;
+}
+
+.review-table td, .review-table th{
+    background-color: #fff !important;
+    font-size: 17px !important;
+    text-align: center !important;
+}
+.review-table tbody tr td:nth-child(2){
+    text-align: left !important;
+    padding-left: 5px;
+}
+.review-table th{
+    padding: 10px !important;
+}
+.review-popup{
+    font-size: 14px;
+}
+.review-popup .table-responsive.table-bordered.col-sm-12 td {
+    padding: 5px;
+}
+#search-grid-pjax td ul{padding-left: 0;}
+.text-centered{text-align: center;}
+.popover.fade.top.in.editable-container.editable-popup {
+    z-index: 9999;
+}
+.highlight-ar{
+    background-color: #ffd700;
+}
+.link-no-margin a{margin: 0;}
+.border-bottom-none table tr td {border-bottom: 0 none}
+tr.border-bottom-grey td {border-bottom: 1px solid #e7eaec !important; padding-top: 0px !important;}
+.border-bottom-none .table-striped-new > tbody > tr:nth-of-type(4n+1) {
+    background-color: #f9f9f9 !important;
+}
+.border-bottom-none .table-striped-new > tbody > tr:nth-of-type(4n+2) {
+    background-color: #f9f9f9 !important;
+}
+.ibox-tools a.btn {
+    color: #ffffff;
+}
+pre{
+    word-break: unset;
+    word-wrap: unset;
+    white-space: pre-wrap;
+}
+.span-inline-block{display: inline-block}
+.normal-font{font-weight: normal}

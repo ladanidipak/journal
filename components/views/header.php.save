@@ -1,0 +1,139 @@
+<?php
+
+use yii\helpers\Url;
+?>
+<header id="header"><!--header-->
+    <div class="header_top"><!--header_top-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="contactinfo">
+                        <ul class="nav nav-pills">
+                            <li><a href="tel:<?= $GLOBALS['settings']['contact_phone'] ?>"><i class="fa fa-phone"></i> <?= $GLOBALS['settings']['contact_phone'] ?></a></li>
+                            <li><a href="mailto:<?= $GLOBALS['settings']['contact_email'] ?>"><i class="fa fa-envelope"></i> <?= $GLOBALS['settings']['contact_email'] ?></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="social-icons pull-right">
+                        <ul class="nav navbar-nav">
+                            <li><a href="https://www.facebook.com/grdjournals" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/grdjournals" target="_blank"><i class="fa fa-twitter"></i></a></li>
+<!--                            <li><a href="#"><i class="fa fa-linkedin" target="_blank"></i></a></li>-->
+<!--                            <li><a href="#"><i class="fa fa-dribbble" target="_blank"></i></a></li>-->
+                            <li><a href="https://plus.google.com/+grdjournals" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/header_top-->
+
+    <div class="header-middle"><!--header-middle-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo pull-left grdlogo">
+                        <a href="<?= Url::to(['page/index']) ?>"><img src="<?= BASEURL ?>images/logo.png" alt="" /></a>
+                    </div>
+                    <div class="btn-group pull-right">
+
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav">
+                                <li><a href="<?= Url::to(['page/index']) ?>"><i class="fa fa-bars"></i> Welcome</a></li>
+                                <li><a href="<?= Url::to(['page/aboutus']) ?>"><i class="fa fa-users"></i> About Us</a></li>
+                                <!--<li><a href="<?= Url::to(['page/index']) ?>"><i class="fa fa-tasks"></i> Our Journals</a></li>-->
+                                <li><a href="<?= Url::to(['page/contactus']) ?>"><i class="fa fa-user"></i> Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-9 remove-left-padding"><h1 class="sitetitle">Global Research and Development Journals</h1></div>
+                        <div class="col-sm-3 pull-right header-issn">GRDJE<br>e-ISSN : 2455-5703</div>
+                    </div>
+                    <div class="row">
+                        <div class="mennucontainer container pull-left">
+                                <div class="col-sm-12 menustyle">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="mainmenu pull-left">
+                                        <ul class="nav navbar-nav collapse navbar-collapse">
+                                            <li><a href="<?= Url::to(['page/index']) ?>" class="active">Home</a></li>
+                                            <li class="dropdown"><a href="javascript:;">For Authors<i class="fa fa-angle-down"></i></a>
+                                                <ul role="menu" class="sub-menu">
+                                                    <li><a href="<?= Url::to(['page/howtopublish']) ?>">How to Publish</a></li>
+                                                    <li><a href="<?= Url::to(['page/authorguideline']) ?>">Author Guideline</a></li>
+                                                    <li><a href="<?= Url::to(['page/grdjecharges']) ?>">Processing Charge</a></li>
+                                                    <li><a href="http://grdjournals.com/uploads/files/GRD-paper-format.pdf" target="_blank">Paper Format</a></li>
+                                                    <li><a href="http://grdjournals.com/uploads/files/GRD-copyright.pdf" target="_blank">Copyright Form</a></li>
+                                                    <li><a href="<?= Url::to(['page/payment']) ?>">Submit Payment</a></li>
+                                                    <li><a href="<?= Url::to(['page/paperstatus']) ?>">Check Paper Status</a></li> 
+                                                    <li><a href="<?= Url::to(['page/searchmenuscript']) ?>">Search Manuscript Online</a></li>
+                                                    <li><a href="<?= Url::to(['page/confproposal']) ?>">Conference Proposal</a></li> 
+                                                </ul>
+                                            </li> 
+                                            <li class="dropdown"><a href="javascript:;">For Reviewers<i class="fa fa-angle-down"></i></a>
+                                                <ul role="menu" class="sub-menu">
+                                                    <li><a href="<?= Url::to(['page/editorialboard']) ?>">Editorial Board</a></li>
+                                                    <li><a href="<?= Url::to(['page/joinboard']) ?>">Join Editorial Board</a></li>
+
+                                                </ul>
+                                            </li> 
+                                            <li class="dropdown"><a href="javascript:;">Archive<i class="fa fa-angle-down"></i></a>
+                                                <ul role="menu" class="sub-menu">
+<!--                                                    <li><a href="--><?php //= Url::to(['page/currentissue']) ?><!--">Current Issues</a></li>-->
+                                                    <li><a href="<?= Url::to(['page/pastissue']) ?>">All Issues</a></li>
+                                                    <li><a href="<?= Url::to(['page/specialissue']) ?>">Special Issues</a></li>
+                                                </ul>
+                                            </li> 
+                                            <li class="dropdown"><a href="javascript:;">Download<i class="fa fa-angle-down"></i></a>
+                                                <ul role="menu" class="sub-menu">
+                                                    <li><a target="_blank" href="http://grdjournals.com/uploads/files/GRD-copyright.pdf">Copyright Form</a></li>
+                                                    <li><a target="_blank" href="http://grdjournals.com/uploads/files/GRD-paper-format.pdf">Paper Template</a></li>
+                                                    <li><a href="<?= Url::to(['page/download']) ?>">Download Section</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown"><a href="javascript:;">Conference<i class="fa fa-angle-down"></i></a>
+                                                <ul role="menu" class="sub-menu">
+                                                    <li><a href="<?= Url::to(['page/confproposal']) ?>">Conference Proposal</a></li>
+                                                    <li><a href="<?= Url::to(['page/conferences']) ?>" style="font-size : 16px;">Conference Preceedings</a></li>
+                                                </ul>
+                                            </li>
+                                            <!--<li><a href="<?= Url::to(['page/researcharea']) ?>">Research Area</a></li>-->
+                                            <li><a href="<?= Url::to(['page/ethicsdocument']) ?>">Ethics</a></li>
+                                            <li><a href="<?= Url::to(['page/faq']) ?>">FAQ</a></li>
+                                             <!--<li class="dropdown"><a href="javascript:;">Blog<i class="fa fa-angle-down"></i></a>
+                                                <ul role="menu" class="sub-menu">
+                                                    <li><a href="http://grdjournals.blogspot.in/">Blogger</a></li>
+                                                    <li><a href="https://grdjournals.wordpress.com/" style="font-size : 16px;">Wordpress</a></li>
+                                                </ul>
+                                            </li>-->
+                                        </ul>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <!--<div class="row">
+                        <div class="xmicrosoft xmarquee">
+                            <span style="font-size: 12pt;"><span style="color: #0000ee;">National Conference <span style="color: #000000;">on</span></span>&nbsp;<span style="color: #0000ff;">Recent Advances in Civil Engineering for Global Sustainability(RACEGS - 2016)&nbsp;</span></span><span style="font-size: 12pt;">on 29,30 March organized by S.S.A.S.I.T, Surat&nbsp;</span>for More Details <a href="http://www.ssasit.ac.in/app/eventdetail.aspx?eventid=NjU=-FCCK9w6cKxQ" target="_blank">Cilck Here</a>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+
+    <div class="header-bottom"><!--header-bottom-->
+
+    </div><!--/header-bottom-->
+</header><!--/header-->

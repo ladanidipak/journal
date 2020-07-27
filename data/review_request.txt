@@ -1,0 +1,39 @@
+------------------------------
+Before Script
+------------------------------
+*backup database
+*send a review requst to test
+
+in local 
+*rename review_request to review_request_new
+*rename review_request_old to review_request
+
+*comment beforesave 
+
+*git push 
+
+exe query
+CREATE TABLE `review_request_new` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `article_id` int(11) NOT NULL,
+ `reviewer_id` int(11) NOT NULL,
+ `review_status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=> No reply , 1=>accepted, 2=>rejected,5=>No Analytics',
+ `created_dt` datetime NOT NULL,
+ `created_by` int(11) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+*ALTER TABLE `review_request` ADD `t_status` TINYINT(1) NOT NULL DEFAULT '0' AFTER `created_by`;
+*ALTER TABLE `review_request_new` ADD `reply_dt` DATETIME NULL DEFAULT NULL AFTER `created_by`;
+
+*run script from db/review
+
+in local
+rename review_request to review_request_old
+rename review_request_new to review_request
+*uncomment before save function in ReveiwRequest
+*git push 
+
+* RENAME TABLE `journal`.`review_request` TO `journal`.`review_request_old`; 
+* RENAME TABLE `journal`.`review_request_new` TO `journal`.`review_request`; 
+

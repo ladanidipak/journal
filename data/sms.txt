@@ -1,0 +1,41 @@
+For submitted
+Hello,
+Manuscript with ID GRDJEVxxIxxxxxx submitted successfully.
+Check status: https://goo.gl/wzezrB
+Mail:info@grdjournals.com
+Phone:+917405407107
+
+For Rejected
+Dear Author,
+Your article with ID GRDJEVxxIxxxxxx is rejected.
+Please check your email for details.
+Mail us:info@grdjournals.com
+Phone:+917405407107
+
+For Accepted
+Dear Author,
+Your article with ID GRDJEVxxIxxxxxx is accepted.
+Please check your registered email and upload required proofs for publishing your article.
+Click here for next steps to complete publication : https://goo.gl/GOr7n4
+Mail:info@grdjournals.com
+Phone:+917405407107
+www.grdjournals.com
+
+For Reminder:
+Dear Author,
+Your article with ID GRDJEVxxIxxxxxx is accepted.
+Check your email for details.
+For Queries:info@grdjournals.com
+Phone:+917405407107
+
+For Published:
+Dear Author,
+Your article with ID GRDJEVxxIxxxxxx is published in volume XX issue XX of GRDJE
+Check your article & other manuscripts here : https://goo.gl/xdPfB9
+Please check your email
+For Queries:-
+Mail:info@grdjournals.com
+Phone:+917405407107
+
+
+Hello,\nManuscript with ID GRDJEVxxIxxxxxx submitted successfully.\nCheck status: https://goo.gl/wzezrB\nMail:info@grdjournals.com\nPhone:+917405407107

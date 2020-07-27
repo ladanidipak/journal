@@ -1,0 +1,22 @@
+You can create an account on https://test.instamojo.com
+
+For payments use the following card details:
+
+Number: 4242 4242 4242 4242
+
+Date: Any valid future date
+
+CVV: 111
+
+Name: abc
+
+3D-secure password: 1221
+
+For API you can access your new developers credentials(API key, Auth Token and Salt) from here: https://test.instamojo.com/developers/
+
+You will have to replace instamojo.com to test.instamojo.com everywhere in the code including the API endpoints.
+
+
+
+instamojo table
+item table

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /backend/
+
+User-agent: *
+Allow: /

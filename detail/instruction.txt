@@ -1,0 +1,8 @@
+1 import database in phpmyadmin
+2. configure it on config common/config/database.php
+3. Front url http://localhost/journal/
+4. Back url http://localhost/journal/backend/
+user : admin@grdj.com
+password : 123456
+
+Contact if any query 9662795192

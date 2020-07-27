@@ -1,0 +1,237 @@
+ALTER TABLE `published` ADD `google_scholar` VARCHAR(1000) NULL DEFAULT NULL AFTER `pdf`; 
+
+
+Table*******
+
+CREATE TABLE `article_revision` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `article_id` int(11) NOT NULL,
+ `accept_type` tinyint(1) NOT NULL COMMENT '1=>Accept , 2 => minor revision, 3 => major revision',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+ALTER TABLE `article` ADD `plagiarism` TEXT NULL DEFAULT NULL AFTER `article_review`; 
+ALTER TABLE `editorial_board` ADD `address` VARCHAR(255) NOT NULL AFTER `specialization`, ADD `city` VARCHAR(50) NOT NULL AFTER `address`;
+ALTER TABLE `editorial_board` ADD `profile_pic` VARCHAR(255) NOT NULL AFTER `cv`;
+
+CREATE TABLE `sms_report` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `article_id` int(11) NOT NULL,
+ `data` text NOT NULL,
+ `ip` varchar(20) NOT NULL,
+ `status` varchar(20) NOT NULL,
+ `message` varchar(255) NOT NULL,
+ `created_dt` datetime NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+ALTER TABLE `contact` ADD `unsubscribed` TINYINT(1) NOT NULL DEFAULT '0' AFTER `is_deleted`;
+
+ALTER TABLE `email_request` ADD `list_id` INT NULL DEFAULT NULL AFTER `id_ended`, ADD `send_time` DATETIME NULL DEFAULT NULL AFTER `list_id`;
+
+ALTER TABLE `email_request` CHANGE `id_form` `id_from` INT(11) NOT NULL;
+
+CREATE TABLE `email_master` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `from_name` varchar(75) NOT NULL,
+ `from_email` varchar(255) NOT NULL,
+ `reply_to` varchar(255) NOT NULL,
+ `subject` varchar(500) NOT NULL,
+ `content` text NOT NULL,
+ `created_by` int(11) NOT NULL,
+ `created_dt` datetime NOT NULL,
+ `updated_by` int(11) NOT NULL,
+ `updated_dt` datetime NOT NULL,
+ `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `email_request` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `message_id` int(11) NOT NULL,
+ `send_to_ids` text NOT NULL,
+ `id_form` int(11) NOT NULL,
+ `id_to` int(11) NOT NULL,
+ `id_ended` int(11) NOT NULL COMMENT 'last id email sent to',
+ `created_dt` datetime NOT NULL,
+ `created_by` int(11) NOT NULL,
+ `send_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=>"Under Process", 2 => "Started", 3=>"Sent",4=>"Cancelled"',
+ `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `contact_list` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(255) NOT NULL,
+ `created_by` int(11) NOT NULL,
+ `created_dt` datetime NOT NULL,
+ `updated_by` int(11) NOT NULL,
+ `updated_dt` datetime NOT NULL,
+ `is_deleted` int(11) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `contact` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `list_id` int(11) NOT NULL,
+ `first_name` varchar(100) NOT NULL,
+ `last_name` varchar(100) NOT NULL,
+ `email_id` varchar(255) NOT NULL,
+ `created_by` int(11) NOT NULL,
+ `created_dt` datetime NOT NULL,
+ `updated_by` int(11) NOT NULL,
+ `updated_dt` datetime NOT NULL,
+ `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+
+
+ALTER TABLE `article_review` ADD `certi_status` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0 => Not Sent, 1 => Sent' AFTER `status`;*
+
+
+
+Table*******
+
+
+//***///
+set limit to conference paper
+//***///
+
+----------Uploaded---------------
+CREATE TABLE `hardcopy` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `article_id` int(11) NOT NULL,
+ `dispatched_date` datetime NOT NULL,
+ `dispatched_by` int(11) NOT NULL,
+ `courier_name` varchar(255) NOT NULL,
+ `tracking_no` varchar(255) NOT NULL,
+ `tracking_url` varchar(255) NOT NULL,
+ `detail_sent` tinyint(1) NOT NULL DEFAULT '0',
+ `created_dt` datetime NOT NULL,
+ `created_by` int(11) NOT NULL,
+ `updated_dt` datetime NOT NULL,
+ `updated_by` int(11) NOT NULL,
+ `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+ALTER TABLE `hardcopy` CHANGE `dispatched_by` `dispatched_by` VARCHAR(255) NOT NULL;
+
+ALTER TABLE `qualification` ADD `ordering` INT(4) NOT NULL AFTER `status`; 
+
+ALTER TABLE `editorial_board` ADD `max_article` VARCHAR(50) NOT NULL DEFAULT NULL AFTER `priority`;
+ALTER TABLE `editorial_board` CHANGE `max_article` `max_article` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+
+update `article` set `source` = 'Facebook' where `source` = '0';
+update `article` set `source` = 'Google' where `source` = '1';
+update `article` set `source` = 'Twitter' where `source` = '2';
+update `article` set `source` = 'Reference by a Friend' where `source` = '3';
+update `article` set `source` = 'Newspaper' where `source` = '4';
+
+ALTER TABLE `article` ADD `source_specify` VARCHAR(100) NULL DEFAULT NULL AFTER `source`;
+
+ALTER TABLE `review_request` ADD `sent_ids` VARCHAR(255) NOT NULL AFTER `reviewer_ids`;
+ALTER TABLE `review_request` ADD `rejected_ids` VARCHAR(255) NOT NULL AFTER `sent_ids`;
+
+CREATE TABLE `contact_us` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `name` varchar(255) NOT NULL,
+ `email` varchar(255) NOT NULL,
+ `phone` varchar(15) NOT NULL,
+ `subject` varchar(255) NOT NULL,
+ `message` text NOT NULL,
+ `created_dt` datetime NOT NULL,
+ `updated_dt` datetime NOT NULL,
+ `updated_by` int(11) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+ALTER TABLE `contact_us` ADD `is_deleted` TINYINT(1) NOT NULL DEFAULT '0' ;
+
+ALTER TABLE `article` ADD `allow_certi` TINYINT(1) NOT NULL DEFAULT '0' AFTER `is_submitted`;*
+ALTER TABLE `article` ADD `note` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL AFTER `allow_certi`;*
+
+ALTER TABLE `users` ADD `conf_id` INT NULL DEFAULT NULL COMMENT 'Conference Id for confrerence user' ;
+ALTER TABLE `article` ADD `is_submitted` TINYINT(1) NOT NULL DEFAULT '1' AFTER `af_id`;
+
+ALTER TABLE `article` ADD `af_id` INT NOT NULL DEFAULT '0' AFTER `ar_id`;
+
+CREATE TABLE `article_format` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `article_id` int(11) NOT NULL,
+ `formatter_id` int(11) NOT NULL,
+ `formatted_file` text NOT NULL,
+ `formatted_date` datetime DEFAULT NULL,
+ `created_dt` datetime NOT NULL,
+ `created_by` int(11) NOT NULL,
+ `is_deleted` tinyint(1) NOT NULL,
+ PRIMARY KEY (`id`),
+ KEY `is_deleted` (`is_deleted`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+Table*******
+ALTER TABLE `article` ADD `reviewer_copy` VARCHAR(255) NULL DEFAULT NULL AFTER `sent_for_review`; 
+=>article_reviewer
+id
+article_id
+reviewer_id
+review
+reviewed_date
+created_dt
+created_by
+is_deleted
+
+article_formatter
+id
+article_id
+formatter_id
+formatted_file
+formatted_date
+created_dt
+created_by
+is_deleted
+
+CREATE TABLE `review_request` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `article_id` int(11) NOT NULL,
+ `reviewer_ids` varchar(255) NOT NULL,
+ `created_dt` datetime NOT NULL,
+ `created_by` int(11) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+
+ALTER TABLE `article` ADD `r_request_sent` TINYINT(1) NOT NULL DEFAULT '0' AFTER `source`;e
+
+*******TAble
+
+
+SQL*********
+###
+ALTER TABLE `editorial_board` ADD `branch_id` INT(11) NOT NULL AFTER `institute_name`, ADD `branch_name` VARCHAR(100) NOT NULL AFTER `branch_id`, ADD `specialization` VARCHAR(100) NOT NULL AFTER `branch_name`, ADD INDEX (`branch_id`) ;
+ALTER TABLE `article` ADD `formatted_date` DATETIME NULL DEFAULT NULL AFTER `formatted_file`;
+ALTER TABLE `article` ADD `reviewed_date` DATETIME NULL DEFAULT NULL AFTER `reviewer_id`; 
+*********SQL
+
+
+
+
+$counter = $model->articles;
+        $success = 0;
+        while($success == 0){
+            $counter = $counter + 1;
+            $success = self::updateAll(['articles'=>$counter],"articles < {$counter}");
+        }
+        return $counter;
+
+****** Statistics
+
+1.Reveiw certi
+1.mailgun
+2. api
+3. followup list
+
+
