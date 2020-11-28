@@ -236,14 +236,14 @@
 
                                                                             <p style="margin:0;padding-bottom:1em"><strong>Pay Through PAYTM:</strong></p>
                                                                             <ul>
-                                                                                <li>Please note this can be done with paytm app only.</li>
+                                                                               <!-- <li>Please note this can be done with paytm app only.</li>
                                                                                 <li>Open paytm app in your mobile.</li>
-                                                                                <li>If you have logged in through app,  tap on pay button on upper left menu and  Scan the QR Code below.</li>
-                                                                                <li>You can also pay through our number <br>+91 812 813 3684.</li>
+                                                                                <li>If you have logged in through app,  tap on pay button on upper left menu and  Scan the QR Code below.</li>-->
+                                                                                <li>You can also pay through our number <br>+91 740 540 7107.</li>
                                                                                 <li>Please enter the manuscript id in payment for option.</li>
                                                                                 <li>After making payment, the screenshot of such transaction will be required with transaction id in order to verify the payment.</li>
                                                                             </ul>
-                                                                            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img width="196" height="200" alt="paytm" src="http://grdjournals.com/paytm.jpg" style="border-width: 0px; display: block; margin-left: auto; margin-right: auto;"></p>
+                                                                            <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img width="196" height="200" alt="paytm" src="https://www.grdjournals.com/design_elements/images/gpay.jpeg" style="border-width: 0px; display: block; margin-left: auto; margin-right: auto;"></p>
                                                                             <p style="margin:0;padding-bottom:1em"><strong>Cash deposit:</strong></p>
                                                                             <ul>
                                                                                 <li>You can make a cash Deposit in near any bank Branch (IDBI Bank or Any Other Bank) to GRD Journals’ account. </li>

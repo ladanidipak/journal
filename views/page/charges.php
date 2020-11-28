@@ -100,7 +100,7 @@ $actionId = $this->context->action->id;
                                 <div class="pricing-table">
                                     <div class="col-md-4 col-sm-6">
                                         <div class="plan">
-                                            <h3>Enterprise<span>$75</span></h3>
+                                            <h3>Enterprise<span>$100</span></h3>
                                             <ul>
                                                 <li>Manuscript Publication</li>
                                                 <li>Review Report</li>
@@ -114,7 +114,7 @@ $actionId = $this->context->action->id;
                                             <div class="plan-ribbon-wrapper">
                                                 <div class="plan-ribbon">Popular</div>
                                             </div>
-                                            <h3>Professional<span>$85</span></h3>
+                                            <h3>Professional<span>$130</span></h3>
                                             <ul>
                                                 <li>Manuscript Publication</li>
                                                 <li>Review Report</li>
@@ -126,7 +126,7 @@ $actionId = $this->context->action->id;
                                     </div>
                                     <div class="col-md-4 col-sm-6">
                                         <div class="plan">
-                                            <h3>Standard<span>$100 </span></h3>
+                                            <h3>Standard<span>$150 </span></h3>
                                             <ul>
                                                 <li>Manuscript Publication</li>
                                                 <li>Review Report</li>

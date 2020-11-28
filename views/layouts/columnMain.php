@@ -424,7 +424,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                         <i class="icon-featured fa fa-clipboard"></i>
                                         <h4 class="text-uppercase">Reporting</h4>
                                         <p>Plagiarism reports, Free review reports for each review.</p>
-                                        <p><a href="#" class="lnk-primary learn-more">Learn More <i class="fa fa-angle-right"></i></a></p>
+                                        <p><a href="<?= Url::to(['page/reporting']) ?>" class="lnk-primary learn-more">Learn More <i class="fa fa-angle-right"></i></a></p>
                                     </div>
                                 </div>
                             </div>
@@ -537,6 +537,11 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                             <a href="https://www.worldcat.org/title/global-research-and-development-journal-for-engineering/oclc/1127437816&referer=brief_results"><img src="<?= BASEURL ?>images/drtheme/World_Cat.png"></a>
                                         </div>
                                     </div>
+                                  	<div class="pr-sm pl-sm">
+                                        <div class="gray_small_img">
+                                            <a href="https://orcid.org/0000-0002-8266-8439"><img src="<?= BASEURL ?>images/drtheme/orcid.jpeg"></a>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -553,7 +558,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                 <div class="counters counters-text-light">
                     <div class="col-md-3 col-sm-6">
                         <div class="counter">
-                            <strong data-to="3000" data-append="+">0</strong>
+                            <strong data-to="10000" data-append="+">0</strong>
                             <label>Authors across world</label>
                         </div>
                     </div>
@@ -565,7 +570,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="counter">
-                            <strong data-to="30" data-append="+">0</strong>
+                            <strong data-to="55" data-append="+">0</strong>
                             <label>Issues Published</label>
                         </div>
                     </div>
