@@ -31,7 +31,7 @@ define('DOCURL', $basePath);
 define('APP_PANEL', 'console');
 
 $productName = 'GrdJournals Console';
-if ($ip_adress != "103.227.177.62") {
+if ($ip_adress != "185.151.51.121") {
 	$dbHost = "localhost";
 	$dbUser = "root";
 	$dbPass = "root";
@@ -75,5 +75,5 @@ $ALLOWED_FILES = array('txt', 'pdf', 'doc', 'docx', 'ppt', 'pptx', 'rtf', 'xls',
 $COMPANY_NAME = "GRD Journals";
 $COMPANY_ADDRESS = "India";
 
-$ERROR_USER = array('pritesh.khetani@drcsystems.com' => 'Pritesh Khetani');
+$ERROR_USER = array('ladanidipak2014@gmail.com' => 'Pritesh Khetani');
 // Assign constants to array, this array will be passed to params variable of application.config.main.php
