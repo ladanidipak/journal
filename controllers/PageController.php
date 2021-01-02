@@ -484,6 +484,40 @@ class PageController extends BaseController {
         return $this->render('editorialboard', ['content' => $content, 'reviewers' => $reviewerss]);
     }
 
+    public function actionReviewerboard() {
+        $content = Cms::getContent($this->action->id);
+        $this->siteTitle = $content->page_title;
+        $reviewers = EditorialBoard::find()->where(['status' => 1, 'is_deleted' => 0, 'hide_in_list' => 1])->all();
+        $Phd_Completed=[];
+        $Phd_Persuing=[];
+        $Me_Completed=[];
+        $ME_Pursuing=[];
+        $M_sc=[];
+        $M_pharm=[];
+        $M_Tech=[];
+        $Others=[];
+        foreach ($reviewers as $reviewer){
+            if($reviewer->qualification == 'Phd Completed')
+                $Phd_Completed[] = $reviewer;
+            else if($reviewer->qualification == 'Phd Persuing' || $reviewer->qualification == 'PhD Pursuing')
+                $Phd_Persuing[] = $reviewer;
+            else if($reviewer->qualification == 'Me Completed')
+                $Me_Completed[] = $reviewer;
+            else if($reviewer->qualification == 'ME Pursuing')
+                $ME_Pursuing[] = $reviewer;
+            else if($reviewer->qualification == 'M.sc')
+                $M_sc[] = $reviewer;
+            else if($reviewer->qualification == 'M.pharm')
+                $M_pharm[] = $reviewer;
+            else if($reviewer->qualification == 'M.Tech')
+                $M_Tech[] = $reviewer;
+            else
+                $Others[] = $reviewer;
+        }
+        $reviewerss = array_merge($Phd_Completed, $Phd_Persuing,$Me_Completed,$ME_Pursuing,$M_sc,$M_pharm,$M_Tech, $Others);
+        return $this->render('editorialboard', ['content' => $content, 'reviewers' => $reviewerss]);
+    }
+
     public function actionJoinboard() {
 
         $model = new \backend\models\EditorialBoard();

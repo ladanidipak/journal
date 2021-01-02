@@ -26,40 +26,51 @@
         </div>-->
         <?= $content->content; ?>
         <div class="row">
-            <h2 class="text-center">Advisory/Editorial/Reviewer Board Members</h2>
+            <h2 class="text-center"><?= (Yii::$app->controller->action->id == 'editorialboard') ? 'Editorial' : 'Reviewer' ?> Board Members</h2>
             <div class="col-md-6">
                 <div class="panel-group panel-group-primary" id="accordion2Primary">
                     <?php
                     $count = 0;
-                    foreach ($reviewers as $reviewer):;
-                        ?>
+                    foreach ($reviewers as $reviewer) :;
+                    ?>
                         <?php if ($count % 2 == 0) { ?>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2Primary" href="#collapse<?= $count ?>">
-                                            <?php // if (isset($reviewer['profile_pic']) && $reviewer['profile_pic'] && file_exists('/var/www/uploads' . $reviewer['profile_pic'])) { ?>
+                                            <?php // if (isset($reviewer['profile_pic']) && $reviewer['profile_pic'] && file_exists('/var/www/uploads' . $reviewer['profile_pic'])) { 
+                                            ?>
                                             <?php if (file_exists(Yii::$app->params['reviewerPath'] . $reviewer['profile_pic']) && isset($reviewer['profile_pic']) && $reviewer['profile_pic']) { ?>
-                                                <div class="round-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>"/></div><?= $reviewer['full_name'] ?>
+                                                <div class="round-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>" /></div><?= $reviewer['full_name'] ?>
                                             <?php } else { ?>
-                                                <div class="round-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg"/></div><?= $reviewer['full_name'] ?>
+                                                <div class="round-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg" /></div><?= $reviewer['full_name'] ?>
                                             <?php } ?>
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapse<?= $count ?>" class="accordion-body collapse">
                                     <div class="panel-body">
-                                        <?php if (file_exists(Yii::$app->params['reviewerPath'] . $reviewer['profile_pic']) && isset($reviewer['profile_pic']) && $reviewer['profile_pic']) { ?>
-                                            <div class="main-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>"/></div>
-                                        <?php } else { ?>
-                                            <div class="main-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg"/></div>
-                                        <?php } ?>
-                                        <p><?= $reviewer['designation'] ?></p>
-                                        <p><p><?= $reviewer['institute_name'] ?></p></p>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <?php if (file_exists(Yii::$app->params['reviewerPath'] . $reviewer['profile_pic']) && isset($reviewer['profile_pic']) && $reviewer['profile_pic']) { ?>
+                                                    <div class="main-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>" /></div>
+                                                <?php } else { ?>
+                                                    <div class="main-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg" /></div>
+                                                <?php } ?>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <p>Country : <?= $reviewer['country'] ?></p>
+                                                <p>Official Email : <?= $reviewer['email'] ?> </p>
+                                                <p>Affiliation : <?= $reviewer['institute_name'] ?></p>
+                                                <p>Designation/Department : <?= $reviewer['designation'] ?></p>
+                                                <p><b>Specialization : <?= $reviewer['specialization'] ?></b></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        <?php }$count ++; ?>
+                        <?php }
+                        $count++; ?>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -67,34 +78,44 @@
                 <div class="panel-group panel-group-primary" id="accordion2Primary">
                     <?php
                     $count1 = 0;
-                    foreach ($reviewers as $reviewer):;
-                        ?>
+                    foreach ($reviewers as $reviewer) :;
+                    ?>
                         <?php if ($count1 % 2 != 0) { ?>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2Primary" href="#collapse<?= $count1 ?>">
                                             <?php if (file_exists(Yii::$app->params['reviewerPath'] . $reviewer['profile_pic']) && isset($reviewer['profile_pic']) && $reviewer['profile_pic']) { ?>
-                                                <div class="round-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>"/></div><?= $reviewer['full_name'] ?>
+                                                <div class="round-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>" /></div><?= $reviewer['full_name'] ?>
                                             <?php } else { ?>
-                                                <div class="round-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg"/></div><?= $reviewer['full_name'] ?>
+                                                <div class="round-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg" /></div><?= $reviewer['full_name'] ?>
                                             <?php } ?>
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapse<?= $count1 ?>" class="accordion-body collapse">
                                     <div class="panel-body">
-                                        <?php if (file_exists(Yii::$app->params['reviewerPath'] . $reviewer['profile_pic']) && isset($reviewer['profile_pic']) && $reviewer['profile_pic']) { ?>
-                                            <div class="main-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>"/></div>
-                                        <?php } else { ?>
-                                            <div class="main-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg"/></div>
-                                            <?php } ?>
-                                        <p><?= $reviewer['designation'] ?></p>
-                                        <p><p><?= $reviewer['institute_name'] ?></p></p>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <?php if (file_exists(Yii::$app->params['reviewerPath'] . $reviewer['profile_pic']) && isset($reviewer['profile_pic']) && $reviewer['profile_pic']) { ?>
+                                                    <div class="main-img"><img src="<?= Yii::$app->params['webUrl'] . "/uploads/reviewer_pic/" . $reviewer['profile_pic'] ?>" /></div>
+                                                <?php } else { ?>
+                                                    <div class="main-img"><img src="<?= BASEURL ?>images/drtheme/default_male.jpg" /></div>
+                                                <?php } ?>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <p>Country : <?= $reviewer['country'] ?></p>
+                                                <p>Official Email : <?= $reviewer['email'] ?></p>
+                                                <p>Affiliation : <?= $reviewer['institute_name'] ?></p>
+                                                <p>Designation/Department : <?= $reviewer['designation'] ?></p>
+                                                <p><b>Specialization : <?= $reviewer['specialization'] ?></b></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        <?php }$count1 ++; ?>
+                        <?php }
+                        $count1++; ?>
                     <?php endforeach; ?>
                 </div>
             </div>

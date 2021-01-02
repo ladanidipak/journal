@@ -28,6 +28,7 @@
   'publication-policies' => 'page/publicationpolicies',
   'refundpolicy' => 'page/refundpolicy',
   'reporting' => 'page/reporting',
+  'reviewer-board' => 'page/reviewerboard',
   'reviewerguideline' => 'page/reviewerguideline',
   'search-manuscript' => 'page/searchmanuscript',
   'special-issues' => 'page/specialissue',
