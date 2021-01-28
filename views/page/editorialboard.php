@@ -48,7 +48,7 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse<?= $count ?>" class="accordion-body collapse">
+                                <div id="collapse<?= $count ?>" class="accordion-body">
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-sm-4">
@@ -93,7 +93,7 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse<?= $count1 ?>" class="accordion-body collapse">
+                                <div id="collapse<?= $count1 ?>" class="accordion-body">
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-sm-4">
@@ -120,6 +120,6 @@
                 </div>
             </div>
         </div>
-
+	<br>
     </div>
 </div>

@@ -190,12 +190,12 @@ $volissue = VolIss::findCurrentIssue();
                                         </li>
                                         <li class="dropdown dropdown-full-color dropdown-secondary">
                                             <a class="dropdown-toggle" href="#">
-                                                Reviewers
+                                                Board Members
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="<?= Url::to(['page/editorialboard']) ?>">Editorial Board</a></li>
                                                 <li><a href="<?= Url::to(['page/reviewerboard']) ?>">Reviewer Board</a></li>
-                                                <li><a href="<?= Url::to(['page/joinboard']) ?>">Join Editorial Board</a></li>
+                                               <!-- <li><a href="<?= Url::to(['page/joinboard']) ?>">Join Editorial Board</a></li>-->
                                                 <li><a href="<?= Url::to(['page/reviewerguideline']) ?>">Reviewer Guideline</a></li>
                                             </ul>
                                         </li>

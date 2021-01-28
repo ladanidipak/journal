@@ -136,7 +136,7 @@ if ($published->article->conf_id != 0) {
                             <div class="panel-body">
                                 <div class="alert1 alert-default1">
                                     <div class="article_preview_front">
-                                        <iframe id="previewFrame" frameborder="0" style="width:100%; height: 500px;" src="http://docs.google.com/gview?url=http://grdjournals.com/uploads/<?= $fileDir ?>/<?= $published->pdf ?>&embedded=true"></iframe>
+                                        <iframe id="previewFrame" frameborder="0" style="width:100%; height: 500px;" src="https://docs.google.com/gview?url=https://grdjournals.com/uploads/<?= $fileDir ?>/<?= $published->pdf ?>&embedded=true"></iframe>
                                     </div>
                                 </div>
                             </div>

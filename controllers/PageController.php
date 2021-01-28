@@ -51,11 +51,9 @@ class PageController extends BaseController {
     }
 
     public function actionIndex() {
-//	die('inside page');
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $this->sliderVisible = true;
-//        echo '<pre>';print_r($content);exit();
         return $this->render('index', ['content' => $content]);
     }
 
@@ -83,7 +81,7 @@ class PageController extends BaseController {
             if ($article) {
                 if (!in_array($article->status, [5, 7])) {
                     if ($article->status < 5) {
-                        Yii::$app->session->setFlash('danger', "Your paper is still under review. We will mail you once it accepted.");
+                        Yii::$app->session->setFlash('danger', "Your paper is still under review. We will mail you once it is accepted.");
                     } else {
                         Yii::$app->session->setFlash('danger', "Copyright and Payment already uploaded and accepted.<br>If you want to update it then send new documents to info@grdjournals.com with paper id mentioned in email.");
                     }
@@ -204,7 +202,6 @@ class PageController extends BaseController {
         $staCharge = $instamojo::$staticCharges;
 
         if ($instamojo->load(Yii::$app->request->post()) && $instamojo->validate()) {
-            //ob_clean();echo "<pre>".print_r($_POST,true);exit;
             $post = [];
             $p_items = [];
             $p_items['manuscript'] = $items['manuscript'];
@@ -366,7 +363,6 @@ class PageController extends BaseController {
                     } else {
                         Yii::$app->session->setFlash('danger', "Copyright and Payment already uploaded and accepted.<br>If you want to update it then send new documents to info@grdjournals.com with paper id mentioned in email.");
                     }
-
                     return $this->refresh();
                 }
                 if ($article->conf_id != 0) {
@@ -380,9 +376,9 @@ class PageController extends BaseController {
 
                 //Upload Copyright Form
                 $article->copyright_file = \yii\web\UploadedFile::getInstance($article, 'copyright_file');
+
                 $article->copyright_file->name = $filepath . "{$article->paper_id}_copyright_file_" . time() . "." . $article->copyright_file->extension;
                 $copyright = $article->copyright_file->saveAs(DOCPATH . "/uploads/$fileDir/" . $filepath . $article->copyright_file->baseName . '.' . $article->copyright_file->extension);
-
                 //Upload Payment Form
                 $article->payment_file = \yii\web\UploadedFile::getInstance($article, 'payment_file');
                 $article->payment_file->name = $filepath . "{$article->paper_id}_payment_file_" . time() . "." . $article->payment_file->extension;
