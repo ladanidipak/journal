@@ -22,7 +22,7 @@ $pageTitle = Common::getTitle("{$this->context->id}/{$this->context->action->id}
             </div>
             <div class="ibox-content editorial-board-form" style="display: block;">
 
-                <?php $form = ActiveForm::begin(['options'=>['enctype' => 'multipart/form-data'],'enableAjaxValidation' => false, 'enableClientValidation' => true, 'fieldConfig' => ['options' => ['class' => 'col-sm-4'], 'checkboxTemplate' => "<label class=\"control-label\">{labelTitle}</label>\n<div>\n{beginLabel}\n{input}\n{endLabel}\n{error}\n{hint}\n</div>"]]); ?>
+                <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'], 'enableAjaxValidation' => false, 'enableClientValidation' => true, 'fieldConfig' => ['options' => ['class' => 'col-sm-4'], 'checkboxTemplate' => "<label class=\"control-label\">{labelTitle}</label>\n<div>\n{beginLabel}\n{input}\n{endLabel}\n{error}\n{hint}\n</div>"]]); ?>
 
                 <div class="row">
                     <?= $form->field($model, 'full_name')->textInput(['maxlength' => 100]) ?>
@@ -36,10 +36,10 @@ $pageTitle = Common::getTitle("{$this->context->id}/{$this->context->action->id}
                     <?= $form->field($model, 'phone')->textInput(['maxlength' => 15]) ?>
                     <?php
                     $desigArray = backend\models\Designation::getDesignations();
-                    if( !$model->isNewRecord && !in_array($model->designation,$desigArray)){
+                    if (!$model->isNewRecord && !in_array($model->designation, $desigArray)) {
                         $model->desigDrop = "Other";
                         $model->desigInput = $model->designation;
-                    }else{
+                    } else {
                         $model->desigDrop = $model->designation;
                     }
                     ?>
@@ -70,32 +70,37 @@ $pageTitle = Common::getTitle("{$this->context->id}/{$this->context->action->id}
                 <div class="row">
                     <?= $form->field($model, 'specialization')->textInput(['maxlength' => 255]) ?>
                     <?php
-                        $qualiArray = backend\models\Qualification::getQualifications();
-                        if($model->qualification != "" && !in_array($model->qualification,$qualiArray)){
-                            $model->qualiDrop = "Others";
-                            $style="display:block";
-                        } else {
-                            $model->qualiDrop = $model->qualification;
-                            $style="display:none";
-                        }
+                    $qualiArray = backend\models\Qualification::getQualifications();
+                    if ($model->qualification != "" && !in_array($model->qualification, $qualiArray)) {
+                        $model->qualiDrop = "Others";
+                        $style = "display:block";
+                    } else {
+                        $model->qualiDrop = $model->qualification;
+                        $style = "display:none";
+                    }
                     ?>
                     <?= $form->field($model, 'qualiDrop')->dropDownList($qualiArray,  Common::getDropDownOptions($model, 'qualiDrop')) ?>
-                    <?= $form->field($model, 'qualification',['options'=>['style'=>"$style"]])->textInput(['maxlength' => 100])->label('Qualification (Other)') ?>
+                    <?= $form->field($model, 'qualification', ['options' => ['style' => "$style"]])->textInput(['maxlength' => 100])->label('Qualification (Other)') ?>
                 </div>
 
                 <div class="row">
+
+                    <?= $form->field($model, 'show_in_reviewer')->checkbox() ?>
+
+                    <?= $form->field($model, 'show_in_editor')->checkbox() ?>
+                </div>
+                <div class="row">
                     <div class="col-sm-4">
-                        <?= $form->field($model, 'cv',['options'=>['class'=>'col-sm-12']])->fileInput()->label('Upload Your CV') ?>
-                        <?= Html::a($model->cv,DOCURL."uploads/cv/".$model->cv,['target'=>'_blank'])?>
+                        <?= $form->field($model, 'cv', ['options' => ['class' => 'col-sm-12']])->fileInput()->label('Upload Your CV') ?>
+                        <?= Html::a($model->cv, DOCURL . "uploads/cv/" . $model->cv, ['target' => '_blank']) ?>
                     </div>
 
                     <div class="col-sm-4">
-                        <?= $form->field($model, 'profile_pic',['options'=>['class'=>'col-sm-12']])->fileInput()->label('Upload Profile Pic') ?>
-                        <?= Html::img(DOCURL."uploads/reviewer_pic/".$model->profile_pic,['style'=>'width:200px;height:auto;'])?>
+                        <?= $form->field($model, 'profile_pic', ['options' => ['class' => 'col-sm-12']])->fileInput()->label('Upload Profile Pic') ?>
+                        <?= Html::img(DOCURL . "uploads/reviewer_pic/" . $model->profile_pic, ['style' => 'width:200px;height:auto;']) ?>
                     </div>
 
                 </div>
-
 
 
                 <div class="row">

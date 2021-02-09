@@ -48,6 +48,7 @@ class EditorialBoard extends \yii\db\ActiveRecord
     public $qualiInput;
     public $desigDrop;
     public $desigInput;
+    public $CertificateText;
     public static $statusArray = [0 => 'Pending', 1 => 'Approved', 2 => 'Rejected'];
     public static $statusClass = [0 => 'default', 1 => 'primary', 2 => 'danger'];
     public static $maxArticleArray = ['Upto 5' => 'Upto 5', '5 to10' => '5 to10', '10 to 15' => '10 to 15'];
@@ -72,7 +73,7 @@ class EditorialBoard extends \yii\db\ActiveRecord
             ['desigInput', 'required', 'when' => function ($model) {
                 return $model->desigDrop == 'Other';
             }, 'whenClient' => "function (attribute, value) {return $('#editorialboard-desigdrop').val() == 'Other';}"],
-            [['status', 'created_dt', 'created_by', 'updated_dt', 'updated_by', 'is_deleted', 'priority', 'show_in_front', 'branch_id', 'hide_in_list'], 'integer'],
+            [['status', 'created_dt', 'created_by', 'updated_dt', 'updated_by', 'is_deleted', 'priority', 'show_in_front', 'branch_id', 'hide_in_list', 'show_in_reviewer', 'show_in_editor'], 'integer'],
             [['max_article'], 'string', 'max' => 50],
             [['full_name', 'qualification', 'designation', 'email', 'country', 'state'], 'string', 'max' => 100],
             [['cv'], 'file', 'skipOnEmpty' => false, 'extensions' => 'doc, docx, pdf', 'maxSize' => 1024 * 1024 * 5, 'on' => ['back_create', 'create']],
@@ -139,7 +140,7 @@ class EditorialBoard extends \yii\db\ActiveRecord
         }
     }
 
-    public static function generateCertificates($reviewer, $url = false)
+    public static function generateCertificates($reviewer, $url = false, $certificateText = '')
     {
         $name = $reviewer->full_name;
         $root_path = DOCPATH . "/uploads/reviewer_certi/";
@@ -155,9 +156,9 @@ class EditorialBoard extends \yii\db\ActiveRecord
         $textArray = [
             ['name' => 'ISSN [ONLINE] : 2455 - 5703', 'x' => 4400, 'y' => 460, 'font_size' => 55, 'font' => DOCPATH . '/uploads/certificate/times_bold.ttf'],
             ['name' => $reviewer_id, 'x' => 4400, 'y' => 700, 'font_size' => 195, 'font' => DOCPATH . '/uploads/certificate/barcode.ttf'],
-            ['name' => $name, 'x' => 'center', 'y' => 1850, 'font_size' => 110, 'font' => DOCPATH . '/uploads/certificate/times_bold.ttf'],
-            ['name' => $reviewer->designation . ' of GRDJE', 'x' => 'center', 'y' => 2300, 'font_size' => 105, 'font' => DOCPATH . '/uploads/certificate/times_bold_italic.ttf'],
-            ['name' => date("d/m/Y"), 'x' => 4150, 'y' => 2820, 'font_size' => 105, 'font' => DOCPATH . '/uploads/certificate/times_bold.ttf']
+            ['name' => $name, 'x' => 2800, 'y' => 1850, 'font_size' => 110, 'font' => DOCPATH . '/uploads/certificate/times_bold.ttf'],
+            ['name' => $certificateText, 'x' => 'center', 'y' => 2300, 'font_size' => 105, 'font' => DOCPATH . '/uploads/certificate/times_bold_italic.ttf'],
+            ['name' => date("d/m/Y"), 'x' => 4150, 'y' => 2820, 'font_size' => 105, 'font' => DOCPATH . '/uploads/certificate/times.ttf']
         ];
         //reviewer_feb_2_remove
         $data = [

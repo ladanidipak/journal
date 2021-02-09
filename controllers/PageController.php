@@ -33,13 +33,15 @@ use yii\web\UploadedFile;
 /**
  * CmsController implements the CRUD actions for Cms model.
  */
-class PageController extends BaseController {
+class PageController extends BaseController
+{
 
     /**
      * Lists all Cms models.
      * @return mixed
      */
-    public function actions() {
+    public function actions()
+    {
         return [
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
@@ -50,30 +52,35 @@ class PageController extends BaseController {
         ];
     }
 
-    public function actionIndex() {
+    public function actionIndex()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $this->sliderVisible = true;
         return $this->render('index', ['content' => $content]);
     }
 
-    public function actionAuthorguideline() {
+    public function actionAuthorguideline()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('authorguideline', ['content' => $content]);
     }
 
-    public function actionPaperformat() {
+    public function actionPaperformat()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('paperformat', ['content' => $content]);
     }
 
-    public function actionPayment() {
+    public function actionPayment()
+    {
         $this->redirect(['getpaydetail']);
     }
 
-    public function actionGetpaydetail() {
+    public function actionGetpaydetail()
+    {
         $model = new \backend\models\Article();
         $model->scenario = 'getpaydetail';
         if ($model->load(\Yii::$app->request->post())) {
@@ -101,7 +108,8 @@ class PageController extends BaseController {
         return $this->render('getpaydetail', ['model' => $model]);
     }
 
-    public function actionChoosepay() {
+    public function actionChoosepay()
+    {
         Yii::$app->session->open();
         if (!empty($_SESSION['get_pay_detail'])) {
             $pay_detail = $_SESSION['get_pay_detail'];
@@ -125,7 +133,8 @@ class PageController extends BaseController {
         }
     }
 
-    public function actionUploadcopyright() {
+    public function actionUploadcopyright()
+    {
         Yii::$app->session->open();
         if (!empty($_SESSION['get_pay_detail'])) {
             $pay_detail = $_SESSION['get_pay_detail'];
@@ -181,7 +190,8 @@ class PageController extends BaseController {
         }
     }
 
-    public function actionPayonline() {
+    public function actionPayonline()
+    {
         Yii::$app->session->open();
         if (!empty($_SESSION['get_pay_detail'])) {
             $pay_detail = $_SESSION['get_pay_detail'];
@@ -256,7 +266,7 @@ class PageController extends BaseController {
                     "email" => $article->a_email,
                     "phone" => $article->a_phone,
                     "redirect_url" => Url::to(['paidonline'], true),
-                        //"webhook" => Url::to(['open/postpaydetail'],true)
+                    //"webhook" => Url::to(['open/postpaydetail'],true)
                 ));
                 if (!empty($response['longurl'])) {
                     $instamojo->r_amount = $response['amount'];
@@ -299,7 +309,8 @@ class PageController extends BaseController {
         }
     }
 
-    public function actionPaidonline() {
+    public function actionPaidonline()
+    {
         if (isset($_GET['payment_request_id'])) {
             $pr_id = $_GET['payment_request_id'];
             $insta = InstamojoPayment::findOne(['payment_request_id' => $pr_id, 'is_deleted' => 0]);
@@ -343,7 +354,8 @@ class PageController extends BaseController {
         }
     }
 
-    public function actionUploadpay() {
+    public function actionUploadpay()
+    {
         Yii::$app->session->open();
         if (!empty($_SESSION['get_pay_detail'])) {
             $pay_detail = $_SESSION['get_pay_detail'];
@@ -402,7 +414,8 @@ class PageController extends BaseController {
         }
     }
 
-    public function actionSearchmanuscript() {
+    public function actionSearchmanuscript()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
 
@@ -415,7 +428,8 @@ class PageController extends BaseController {
         return $this->render('searchmenuscript', ['content' => $content, 'dataProvider' => $dataProvider, 'searchModel' => $searchModel]);
     }
 
-    public function actionConfproposal() {
+    public function actionConfproposal()
+    {
         $model = new ConfPro();
         $model->scenario = "create";
         $content = Cms::getContent($this->action->id);
@@ -445,76 +459,79 @@ class PageController extends BaseController {
         return $this->render('confproposal', ['content' => $content, 'model' => $model]);
     }
 
-    
-    public function actionEditorialboard() {
+
+    public function actionEditorialboard()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
-        $reviewers = EditorialBoard::find()->where(['status' => 1, 'is_deleted' => 0, 'hide_in_list' => 0])->all();
-        $Phd_Completed=[];
-        $Phd_Persuing=[];
-        $Me_Completed=[];
-        $ME_Pursuing=[];
-        $M_sc=[];
-        $M_pharm=[];
-        $M_Tech=[];
-        $Others=[];
-        foreach ($reviewers as $reviewer){
-            if($reviewer->qualification == 'Phd Completed')
+        $reviewers = EditorialBoard::find()->where(['status' => 1, 'is_deleted' => 0, 'show_in_editor' => 1])->all();
+        $Phd_Completed = [];
+        $Phd_Persuing = [];
+        $Me_Completed = [];
+        $ME_Pursuing = [];
+        $M_sc = [];
+        $M_pharm = [];
+        $M_Tech = [];
+        $Others = [];
+        foreach ($reviewers as $reviewer) {
+            if ($reviewer->qualification == 'Phd Completed')
                 $Phd_Completed[] = $reviewer;
-            else if($reviewer->qualification == 'Phd Persuing' || $reviewer->qualification == 'PhD Pursuing')
+            else if ($reviewer->qualification == 'Phd Persuing' || $reviewer->qualification == 'PhD Pursuing')
                 $Phd_Persuing[] = $reviewer;
-            else if($reviewer->qualification == 'Me Completed')
+            else if ($reviewer->qualification == 'Me Completed')
                 $Me_Completed[] = $reviewer;
-            else if($reviewer->qualification == 'ME Pursuing')
+            else if ($reviewer->qualification == 'ME Pursuing')
                 $ME_Pursuing[] = $reviewer;
-            else if($reviewer->qualification == 'M.sc')
+            else if ($reviewer->qualification == 'M.sc')
                 $M_sc[] = $reviewer;
-            else if($reviewer->qualification == 'M.pharm')
+            else if ($reviewer->qualification == 'M.pharm')
                 $M_pharm[] = $reviewer;
-            else if($reviewer->qualification == 'M.Tech')
+            else if ($reviewer->qualification == 'M.Tech')
                 $M_Tech[] = $reviewer;
             else
                 $Others[] = $reviewer;
         }
-        $reviewerss = array_merge($Phd_Completed, $Phd_Persuing,$Me_Completed,$ME_Pursuing,$M_sc,$M_pharm,$M_Tech, $Others);
+        $reviewerss = array_merge($Phd_Completed, $Phd_Persuing, $Me_Completed, $ME_Pursuing, $M_sc, $M_pharm, $M_Tech, $Others);
         return $this->render('editorialboard', ['content' => $content, 'reviewers' => $reviewerss]);
     }
 
-    public function actionReviewerboard() {
+    public function actionReviewerboard()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
-        $reviewers = EditorialBoard::find()->where(['status' => 1, 'is_deleted' => 0, 'hide_in_list' => 1])->all();
-        $Phd_Completed=[];
-        $Phd_Persuing=[];
-        $Me_Completed=[];
-        $ME_Pursuing=[];
-        $M_sc=[];
-        $M_pharm=[];
-        $M_Tech=[];
-        $Others=[];
-        foreach ($reviewers as $reviewer){
-            if($reviewer->qualification == 'Phd Completed')
+        $reviewers = EditorialBoard::find()->where(['status' => 1, 'is_deleted' => 0, 'show_in_reviewer' => 1])->all();
+        $Phd_Completed = [];
+        $Phd_Persuing = [];
+        $Me_Completed = [];
+        $ME_Pursuing = [];
+        $M_sc = [];
+        $M_pharm = [];
+        $M_Tech = [];
+        $Others = [];
+        foreach ($reviewers as $reviewer) {
+            if ($reviewer->qualification == 'Phd Completed')
                 $Phd_Completed[] = $reviewer;
-            else if($reviewer->qualification == 'Phd Persuing' || $reviewer->qualification == 'PhD Pursuing')
+            else if ($reviewer->qualification == 'Phd Persuing' || $reviewer->qualification == 'PhD Pursuing')
                 $Phd_Persuing[] = $reviewer;
-            else if($reviewer->qualification == 'Me Completed')
+            else if ($reviewer->qualification == 'Me Completed')
                 $Me_Completed[] = $reviewer;
-            else if($reviewer->qualification == 'ME Pursuing')
+            else if ($reviewer->qualification == 'ME Pursuing')
                 $ME_Pursuing[] = $reviewer;
-            else if($reviewer->qualification == 'M.sc')
+            else if ($reviewer->qualification == 'M.sc')
                 $M_sc[] = $reviewer;
-            else if($reviewer->qualification == 'M.pharm')
+            else if ($reviewer->qualification == 'M.pharm')
                 $M_pharm[] = $reviewer;
-            else if($reviewer->qualification == 'M.Tech')
+            else if ($reviewer->qualification == 'M.Tech')
                 $M_Tech[] = $reviewer;
             else
                 $Others[] = $reviewer;
         }
-        $reviewerss = array_merge($Phd_Completed, $Phd_Persuing,$Me_Completed,$ME_Pursuing,$M_sc,$M_pharm,$M_Tech, $Others);
+        $reviewerss = array_merge($Phd_Completed, $Phd_Persuing, $Me_Completed, $ME_Pursuing, $M_sc, $M_pharm, $M_Tech, $Others);
         return $this->render('editorialboard', ['content' => $content, 'reviewers' => $reviewerss]);
     }
 
-    public function actionJoinboard() {
+    public function actionJoinboard()
+    {
 
         $model = new \backend\models\EditorialBoard();
         $model->scenario = "create";
@@ -542,18 +559,20 @@ class PageController extends BaseController {
             }
         }
         return $this->render('joinboard', [
-                    'model' => $model,
+            'model' => $model,
         ]);
     }
 
-    public function actionPastissue() {
+    public function actionPastissue()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $issues = VolIss::find()->where(['is_deleted' => 0])->orderBy('id Desc')->asArray()->all();
         return $this->render('pastissue', ['content' => $content, 'issues' => $issues]);
     }
 
-    public function getpubquery($currentIssue) {
+    public function getpubquery($currentIssue)
+    {
         if (is_object($currentIssue)) {
             if ($currentIssue->tableName() == 'conference') {
                 $condition = ['published.status' => 1, 'published.is_deleted' => 0, 'article.conf_id' => $currentIssue->id];
@@ -573,12 +592,13 @@ class PageController extends BaseController {
         $pages = new Pagination(['totalCount' => $countQuery->count()]);
         $pages->pageSize = 25;
         $published = $query->offset($pages->offset)
-                ->limit($pages->limit)
-                ->all();
+            ->limit($pages->limit)
+            ->all();
         return ['published' => $published, 'currentIssue' => $currentIssue, 'pages' => $pages];
     }
 
-    public function actionArchive($id) {
+    public function actionArchive($id)
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $currentIssue = VolIss::findOne($id);
@@ -586,7 +606,8 @@ class PageController extends BaseController {
         return $this->render('currentissue', ['content' => $content, 'published' => $viewData['published'], 'currentIssue' => $viewData['currentIssue'], 'pages' => $viewData['pages']]);
     }
 
-    public function actionArchiveajax($id) {
+    public function actionArchiveajax($id)
+    {
         $this->layout = false;
         $content = Cms::getContent('Archive');
         $this->siteTitle = $content->page_title;
@@ -595,7 +616,8 @@ class PageController extends BaseController {
         echo $this->renderAjax('currentissue', ['content' => $content, 'published' => $viewData['published'], 'currentIssue' => $viewData['currentIssue'], 'pages' => $viewData['pages']]);
     }
 
-    public function actionCurrentissue() {
+    public function actionCurrentissue()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $currentIssue = VolIss::find()->where(['is_deleted' => 0])->orderBy('id DESC')->one();
@@ -603,7 +625,8 @@ class PageController extends BaseController {
         return $this->render('currentissue', ['content' => $content, 'published' => $viewData['published'], 'currentIssue' => $viewData['currentIssue'], 'pages' => $viewData['pages']]);
     }
 
-    public function actionSearcharticle() {
+    public function actionSearcharticle()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $currentIssue = VolIss::find()->where(['is_deleted' => 0])->orderBy('id DESC')->one();
@@ -611,43 +634,50 @@ class PageController extends BaseController {
         return $this->render('currentissue', ['content' => $content, 'published' => $viewData['published'], 'currentIssue' => $viewData['currentIssue'], 'pages' => $viewData['pages']]);
     }
 
-    public function actionDownload() {
+    public function actionDownload()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('download', ['content' => $content]);
     }
 
-    public function actionResearcharea() {
+    public function actionResearcharea()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('researcharea', ['content' => $content]);
     }
 
-    public function actionFaq() {
+    public function actionFaq()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('faq', ['content' => $content]);
     }
 
-    public function actionPublicationpolicies() {
+    public function actionPublicationpolicies()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('publicationpolicies', ['content' => $content]);
     }
 
-    public function actionEthicsdocument() {
+    public function actionEthicsdocument()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('ethicsdocument', ['content' => $content]);
     }
 
-    public function actionAboutus() {
+    public function actionAboutus()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('aboutus', ['content' => $content]);
     }
 
-    public function actionContactus() {
+    public function actionContactus()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $model = new ContactUs();
@@ -664,19 +694,22 @@ class PageController extends BaseController {
         return $this->render('contactus', ['content' => $content, 'model' => $model]);
     }
 
-    public function actionGrdjeabout() {
+    public function actionGrdjeabout()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('grdje_about', ['content' => $content]);
     }
 
-    public function actionGrdjeresearcharea() {
+    public function actionGrdjeresearcharea()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('research_area', ['content' => $content]);
     }
 
-    public function actionGrdjesubmit() {
+    public function actionGrdjesubmit()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
 
@@ -688,49 +721,57 @@ class PageController extends BaseController {
         return $this->render('grdje', ['content' => $content]);
     }
 
-    public function actionGrdjecharges() {
+    public function actionGrdjecharges()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('charges', ['content' => $content]);
     }
 
-    public function actionGrdjeimpactfactor() {
+    public function actionGrdjeimpactfactor()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('grdje', ['content' => $content]);
     }
 
-    public function actionGrdjeindexing() {
-      	$content = Cms::getContent($this->action->id, 1);
+    public function actionGrdjeindexing()
+    {
+        $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('grdje', ['content' => $content]);
     }
 
-    public function actionRefundpolicy() {
+    public function actionRefundpolicy()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('refund_policy', ['content' => $content]);
     }
 
-    public function actionReporting() {
+    public function actionReporting()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('reporting', ['content' => $content]);
     }
 
-    public function actionReviewerguideline() {
+    public function actionReviewerguideline()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('reviewerguideline', ['content' => $content]);
     }
 
-    public function actionGrdjecallforpaper() {
+    public function actionGrdjecallforpaper()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         return $this->render('grdje', ['content' => $content]);
     }
 
-    public function actionPaperstatus() {
+    public function actionPaperstatus()
+    {
         $content = Cms::getContent($this->action->id, 1);
         $this->siteTitle = $content->page_title;
         $model = new \backend\models\Article();
@@ -767,7 +808,8 @@ class PageController extends BaseController {
         return $this->render('paperstatus', ['model' => $model, 'p_status' => $p_status, 'p_step' => $p_step]);
     }
 
-    public function actionArticle($paper_id) {
+    public function actionArticle($paper_id)
+    {
         $published = Published::findOne(['paper_id' => $paper_id, 'is_deleted' => 0, 'status' => 1]);
         if ($published) {
             $this->siteTitle = $published->title;
@@ -777,13 +819,15 @@ class PageController extends BaseController {
         }
     }
 
-    public function actionHowtopublish() {
+    public function actionHowtopublish()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         return $this->render('howtopublish', ['content' => $content]);
     }
 
-    public function actionConferences() {
+    public function actionConferences()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $today = date('Y-m-d');
@@ -792,7 +836,8 @@ class PageController extends BaseController {
         return $this->render('conferences', ['content' => $content, 'prev_conf' => $prev_conf, 'upcoming_conf' => $upcoming_conf]);
     }
 
-    public function actionProceedings($id) {
+    public function actionProceedings($id)
+    {
         $id = str_replace('GRDCF', "", $id);
         $id = (int) $id;
         $content = Cms::getContent($this->action->id);
@@ -811,14 +856,16 @@ class PageController extends BaseController {
       return $this->render('currentissue', ['content' => $content, 'published'=>$viewData['published'],'currentIssue'=>$viewData['currentIssue'],'pages' => $viewData['pages'], 'specialIssue'=>$specialIssue]);
       } */
 
-    public function actionSpecialissue() {
+    public function actionSpecialissue()
+    {
         $content = Cms::getContent($this->action->id);
         $this->siteTitle = $content->page_title;
         $conferences = Conference::find()->where(['is_deleted' => 0])->orderBy('id Desc')->asArray()->all();
         return $this->render('specialissue', ['content' => $content, 'conferences' => $conferences]);
     }
 
-    public function actionFolder() {
+    public function actionFolder()
+    {
         $query = "SELECT DISTINCT(file_path) as path FROM `article`  where conf_id = 0";
         $result = Yii::$app->db->createCommand($query)->queryAll();
         foreach ($result as $res) {
@@ -834,5 +881,4 @@ class PageController extends BaseController {
 
         exit("Done");
     }
-
 }
