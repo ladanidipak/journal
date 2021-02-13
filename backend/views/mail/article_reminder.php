@@ -327,7 +327,7 @@
                                                                                                     1200 INR
                                                                                                 </td>
                                                                                                 <td valign="top" class="kmTextContent" style='border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;color:#222;font-family:"Helvetica Neue", Arial;font-size:14px;line-height:130%;text-align:left;border-right:none;text-align:left;width:30%;;border-top-style:solid;padding-bottom:4px;padding-right:0px;padding-left:0px;padding-top:4px;border-top-color:#d9d9d9;border-top-width:1px;'>
-                                                                                                    50 USD
+                                                                                                    100 USD
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr class="kmTableRow">
@@ -346,10 +346,10 @@
                                                                                                     <span style="color:#000080;">PLAGIARISM REPORT</span> <span style="color:#808080;">(Optional)</span>
                                                                                                 </td>
                                                                                                 <td valign="top" class="kmTextContent" style='border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;color:#222;font-family:"Helvetica Neue", Arial;font-size:14px;line-height:130%;text-align:left;border-bottom:none;text-align:left;width:30%;;border-top-style:solid;padding-bottom:4px;padding-right:0px;padding-left:0px;padding-top:4px;border-top-color:#d9d9d9;border-top-width:1px;'>
-                                                                                                    150 INR
+                                                                                                    250 INR
                                                                                                 </td>
                                                                                                 <td valign="top" class="kmTextContent" style='border-collapse:collapse;mso-table-lspace:0;mso-table-rspace:0;color:#222;font-family:"Helvetica Neue", Arial;font-size:14px;line-height:130%;text-align:left;border-right:none;border-bottom:none;text-align:left;width:30%;;border-top-style:solid;padding-bottom:4px;padding-right:0px;padding-left:0px;padding-top:4px;border-top-color:#d9d9d9;border-top-width:1px;'>
-                                                                                                    20 USD
+                                                                                                    30 USD
                                                                                                 </td>
                                                                                             </tr>
                                                                                         </tbody>

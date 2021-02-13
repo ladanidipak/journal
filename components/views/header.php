@@ -164,7 +164,7 @@ $volissue = VolIss::findCurrentIssue();
                                 <h3 class="stickyh3">Global Research and Development Journals</h3>
                                 <nav>
                                     <ul class="nav nav-pills" id="mainNav">
-                                        <li class="activedropdown-full-color dropdown-secondary"><a href="<?= Url::to(['/']) ?>" >Home</a></li>
+                                        <li class="activedropdown-full-color dropdown-secondary"><a href="<?= Url::to(['/']) ?>">Home</a></li>
                                         <li class="dropdown dropdown-full-color dropdown-secondary">
                                             <a class="dropdown-toggle" href="javascript:void(0)">
                                                 Authors
@@ -173,15 +173,15 @@ $volissue = VolIss::findCurrentIssue();
                                                 <li><a href="<?= Url::to(['page/howtopublish']) ?>">How to Publish</a></li>
                                                 <li><a href="<?= Url::to(['page/authorguideline']) ?>">Author Guideline</a></li>
                                                 <li><a href="<?= Url::to(['grdje/submit-an-article']) ?>">Submit Manuscript online</a></li>
-                                                <li><a href="<?= Url::to(['page/grdjecharges']) ?>">Processing Charge</a></li>
+                                                <!-- <li><a href="<?= Url::to(['page/grdjecharges']) ?>">Processing Charge</a></li> -->
                                                 <!--<li><a href="http://grdjournals.com/uploads/files/GRD-paper-format.pdf" target="_blank">Paper Format</a></li>-->
                                                 <!--<li><a href="http://grdjournals.com/uploads/files/GRD-copyright.pdf" target="_blank">Copyright Form</a></li>-->
                                                 <li><a href="<?= Url::to(['page/payment']) ?>">Submit Payment</a></li>
-                                                <li><a href="<?= Url::to(['page/paperstatus']) ?>">Check Paper Status</a></li> 
+                                                <li><a href="<?= Url::to(['page/paperstatus']) ?>">Check Paper Status</a></li>
                                                 <li><a href="<?= Url::to(['page/searchmanuscript']) ?>">Search Manuscript Online</a></li>
-                                                <!--<li><a href="<?= Url::to(['page/confproposal']) ?>">Conference Proposal</a></li>--> 
+                                                <!--<li><a href="<?= Url::to(['page/confproposal']) ?>">Conference Proposal</a></li>-->
                                                 <li><a href="<?= Url::to(['page/download']) ?>">Download Section</a></li>
-                                              	<li><a href="<?= Url::to(['page/grdjeindexing']) ?>">Indexing Library</a></li>
+                                                <li><a href="<?= Url::to(['page/grdjeindexing']) ?>">Indexing Library</a></li>
                                                 <!--<li><a target="_blank" href="http://grdjournals.com/uploads/files/GRD-copyright.pdf">Copyright Form</a></li>-->
                                                 <!--<li><a target="_blank" href="http://grdjournals.com/uploads/files/GRD-paper-format.pdf">Paper Template</a></li>-->
                                                 <!--<li><a href="<?= Url::to(['page/faq']) ?>">FAQ</a></li>-->
@@ -195,7 +195,7 @@ $volissue = VolIss::findCurrentIssue();
                                             <ul class="dropdown-menu">
                                                 <li><a href="<?= Url::to(['page/editorialboard']) ?>">Editorial Board</a></li>
                                                 <li><a href="<?= Url::to(['page/reviewerboard']) ?>">Reviewer Board</a></li>
-                                               <!-- <li><a href="<?= Url::to(['page/joinboard']) ?>">Join Editorial Board</a></li>-->
+                                                <!-- <li><a href="<?= Url::to(['page/joinboard']) ?>">Join Editorial Board</a></li>-->
                                                 <li><a href="<?= Url::to(['page/reviewerguideline']) ?>">Reviewer Guideline</a></li>
                                             </ul>
                                         </li>
@@ -207,11 +207,11 @@ $volissue = VolIss::findCurrentIssue();
                                                 <li><a href="<?= Url::to(['page/pastissue']) ?>">All Issues</a></li>
                                                 <li><a href="<?= Url::to(['page/specialissue']) ?>">Special Issues</a></li>
                                             </ul>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown dropdown-full-color dropdown-secondary">
                                             <a class="dropdown-toggle" href="#">
                                                 Conference
-                                            </a>																		
+                                            </a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="<?= Url::to(['page/confproposal']) ?>">Conference Proposal</a></li>
                                                 <li><a href="<?= Url::to(['page/conferences']) ?>">Conference Preceedings</a></li>
@@ -232,7 +232,7 @@ $volissue = VolIss::findCurrentIssue();
                 </div>
             </div>
         </div>
-        <div class="collapse" id="hidd" >
+        <div class="collapse" id="hidd">
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <div id="flipkart-navbar">
                 <div class="container">
@@ -241,14 +241,14 @@ $volissue = VolIss::findCurrentIssue();
                         <br>
                         <?php
                         $form = ActiveForm::begin([
-                                    'enableClientValidation' => true,
-                                    'action' => ['searchmanuscript'],
-                                    'method' => 'get',
-                                    'fieldConfig' => [
-                                        'options' => [
-                                            'tag' => false,
-                                        ],
-                                    ],
+                            'enableClientValidation' => true,
+                            'action' => ['searchmanuscript'],
+                            'method' => 'get',
+                            'fieldConfig' => [
+                                'options' => [
+                                    'tag' => false,
+                                ],
+                            ],
                         ]);
                         ?>
                         <div class="flipkart-navbar-search smallsearch col-sm-12">
@@ -271,7 +271,7 @@ $volissue = VolIss::findCurrentIssue();
                                 <span class="r-label"><b>Search in:&nbsp;</b></span>
 
                             </div>
-                            <div class="form-group1"  >
+                            <div class="form-group1">
                                 <input id="search-radio-all" class="form-control1" name="labels" type="radio" value="all" checked="">
                                 <label for="search-radio-all" class="r-label">All</label>
                             </div>
@@ -300,12 +300,15 @@ $volissue = VolIss::findCurrentIssue();
         background-color: #2874f0;
         color: #FFFFFF;
     }
-    .row1{
+
+    .row1 {
         padding-top: 10px;
     }
+
     .row2 {
         padding-bottom: 20px;
     }
+
     .flipkart-navbar-input {
         padding: 11px 16px 10px;
         border-radius: 2px 0 0 2px;
@@ -313,6 +316,7 @@ $volissue = VolIss::findCurrentIssue();
         outline: 0 none;
         font-size: 15px;
     }
+
     .flipkart-navbar-button {
         background-color: #f4f4f4;
         border: 1px solid #f4f4f4;
@@ -322,6 +326,7 @@ $volissue = VolIss::findCurrentIssue();
         height: 43px;
         cursor: pointer;
     }
+
     .cart-button {
         background-color: #2469d9;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .23), inset 1px 1px 0 0 hsla(0, 0%, 100%, .2);
@@ -338,11 +343,13 @@ $volissue = VolIss::findCurrentIssue();
         border: none;
         outline: none;
     }
-    .cart-button:hover{
+
+    .cart-button:hover {
         text-decoration: none;
         color: #fff;
         cursor: pointer;
     }
+
     .cart-svg {
         display: inline-block;
         width: 16px;
@@ -350,6 +357,7 @@ $volissue = VolIss::findCurrentIssue();
         vertical-align: middle;
         margin-right: 8px;
     }
+
     .item-number {
         border-radius: 3px;
         background-color: rgba(0, 0, 0, .1);
@@ -361,6 +369,7 @@ $volissue = VolIss::findCurrentIssue();
         line-height: 12px;
         margin-left: 10px;
     }
+
     .upper-links {
         display: inline-block;
         padding: 10px 16px 11px;
@@ -372,20 +381,25 @@ $volissue = VolIss::findCurrentIssue();
         outline: none;
         font-size: 12px;
     }
+
     .dropdown {
         position: relative;
         display: inline-block;
         margin-bottom: 0px;
     }
+
     .dropdown:hover {
         background-color: #fff;
     }
+
     .dropdown:hover .links {
         color: #000;
     }
+
     .dropdown:hover .dropdown-menu {
         display: block;
     }
+
     .dropdown .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -399,18 +413,22 @@ $volissue = VolIss::findCurrentIssue();
         margin: 0;
         padding: 0px;
     }
+
     .form-control1 {
         position: relative;
         top: 3px;
     }
+
     .links {
         color: #fff;
         text-decoration: none;
     }
+
     .links:hover {
         color: #fff;
         text-decoration: none;
     }
+
     .profile-links {
         font-size: 12px;
         font-family: 'Roboto', sans-serif;
@@ -420,33 +438,42 @@ $volissue = VolIss::findCurrentIssue();
         padding: 0 11px;
         line-height: 23px;
     }
-    .profile-li{
+
+    .profile-li {
         padding-top: 2px;
     }
+
     .largenav {
         display: none;
     }
-    .smallnav{
+
+    .smallnav {
         display: block;
     }
-    .smallsearch{
+
+    .smallsearch {
         margin-left: 15px;
         margin-top: 15px;
     }
-    .menu{
+
+    .menu {
         cursor: pointer;
     }
+
     @media screen and (min-width: 768px) {
         .largenav {
             display: block;
         }
-        .smallnav{
+
+        .smallnav {
             display: none;
         }
-        .smallsearch{
+
+        .smallsearch {
             margin: 0px;
         }
     }
+
     .sidenav {
         height: 100%;
         width: 0;
@@ -460,6 +487,7 @@ $volissue = VolIss::findCurrentIssue();
         box-shadow: 0 4px 8px -3px #555454;
         padding-top: 0px;
     }
+
     .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
@@ -468,20 +496,26 @@ $volissue = VolIss::findCurrentIssue();
         display: block;
         transition: 0.3s
     }
+
     .sidenav .closebtn {
         position: absolute;
         top: 0;
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
-        color: #fff;        
+        color: #fff;
     }
-    .form-group1{
-        display:inline-block;	
+
+    .form-group1 {
+        display: inline-block;
     }
+
     @media screen and (max-height: 450px) {
-        .sidenav a {font-size: 18px;}
+        .sidenav a {
+            font-size: 18px;
+        }
     }
+
     @media screen and (max-width: 550px) {
         .smallsearch {
             margin-left: 0;
@@ -491,7 +525,8 @@ $volissue = VolIss::findCurrentIssue();
             margin: auto;
         }
     }
-    .sidenav-heading{
+
+    .sidenav-heading {
         font-size: 36px;
         color: #fff;
     }
