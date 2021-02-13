@@ -154,10 +154,10 @@ class EditorialBoard extends \yii\db\ActiveRecord
         Common::checkAndCreateDirectory($file_path);
         $count = 1;
         $textArray = [
-            ['name' => 'ISSN [ONLINE] : 2455 - 5703', 'x' => 4400, 'y' => 460, 'font_size' => 55, 'font' => DOCPATH . '/uploads/certificate/times_bold.ttf'],
+            //['name' => 'ISSN [ONLINE] : 2455 - 5703', 'x' => 4400, 'y' => 460, 'font_size' => 55, 'font' => DOCPATH . '/uploads/certificate/times_bold.ttf'],
             ['name' => $reviewer_id, 'x' => 4400, 'y' => 700, 'font_size' => 195, 'font' => DOCPATH . '/uploads/certificate/barcode.ttf'],
             ['name' => $name, 'x' => 2800, 'y' => 1850, 'font_size' => 110, 'font' => DOCPATH . '/uploads/certificate/times_bold.ttf'],
-            ['name' => $certificateText, 'x' => 'center', 'y' => 2300, 'font_size' => 105, 'font' => DOCPATH . '/uploads/certificate/times_bold_italic.ttf'],
+            ['name' => $certificateText, 'x' => 2800, 'y' => 2300, 'font_size' => 105, 'font' => DOCPATH . '/uploads/certificate/times_bold_italic.ttf'],
             ['name' => date("d/m/Y"), 'x' => 4150, 'y' => 2820, 'font_size' => 105, 'font' => DOCPATH . '/uploads/certificate/times.ttf']
         ];
         //reviewer_feb_2_remove
