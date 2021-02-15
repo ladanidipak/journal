@@ -16,8 +16,8 @@ use backend\models\Testimonials;
 AppAsset::register($this);
 //DrthemeAsset::register($this);
 $this->beginContent('@app/views/layouts/mainlayout.php');
-?>  
-<div class="modal fade" tabindex="-1" role="dialog" id="notification-modal" >
+?>
+<div class="modal fade" tabindex="-1" role="dialog" id="notification-modal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -33,70 +33,29 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
         </div>
     </div>
 </div>
-<?php if ($this->context->sliderVisible): ?>
+<?php if ($this->context->sliderVisible) : ?>
     <div role="main" class="main">
         <div class="slider-container rev_slider_wrapper" style="height: 415px;">
             <div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options='{"delay": 3000, "gridwidth": 1200, "gridheight": 415, "disableProgressBar": "on", "navigation": {"bullets": {"enable": true, "direction": "vertical", "h_align": "right", "v_align": "center", "space": 6}, "arrows": {"enable": false}}}'>
                 <ul>
                     <li data-transition="fade">
-                        <img src="<?= BASEURL ?>images/drtheme/slider1.jpg"  
-                             alt=""
-                             data-bgposition="center center" 
-                             data-bgfit="cover" 
-                             data-bgrepeat="no-repeat"
-                             class="rev-slidebg">
+                        <img src="<?= BASEURL ?>images/drtheme/slider1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
-                        <div class="tp-caption main-label"
-                             data-x="left" data-hoffset="25"
-                             data-y="center" data-voffset="-5"
-                             data-start="1500"
-                             data-whitespace="nowrap"                         
-                             data-transform_in="y:[100%];s:500;"
-                             data-transform_out="opacity:0;s:500;"
-                             style="z-index: 5; font-size: 1.5em;"
-                             data-mask_in="x:0px;y:0px;">Peer reviewed process to ensure quality</div>
+                        <div class="tp-caption main-label" data-x="left" data-hoffset="25" data-y="center" data-voffset="-5" data-start="1500" data-whitespace="nowrap" data-transform_in="y:[100%];s:500;" data-transform_out="opacity:0;s:500;" style="z-index: 5; font-size: 1.5em;" data-mask_in="x:0px;y:0px;">Peer reviewed process to ensure quality</div>
 
-                        <div class="tp-caption main-label"
-                             data-x="left" data-hoffset="25"
-                             data-y="center" data-voffset="-55"
-                             data-start="500"
-                             style="z-index: 5; text-transform: uppercase; font-size: 52px;"
-                             data-transform_in="y:[-300%];opacity:0;s:500;">Ensure Quality</div>
+                        <div class="tp-caption main-label" data-x="left" data-hoffset="25" data-y="center" data-voffset="-55" data-start="500" style="z-index: 5; text-transform: uppercase; font-size: 52px;" data-transform_in="y:[-300%];opacity:0;s:500;">Ensure Quality</div>
                     </li>
                     <li data-transition="fade">
-                        <img src="<?= BASEURL ?>images/drtheme/slider2.jpg"
-                             alt=""
-                             data-bgposition="center center" 
-                             data-bgfit="cover" 
-                             data-bgrepeat="no-repeat"
-                             class="rev-slidebg">
+                        <img src="<?= BASEURL ?>images/drtheme/slider2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
-                        <div class="tp-caption main-label"
-                             data-x="left" data-hoffset="25"
-                             data-y="center" data-voffset="-5"
-                             data-start="1500"
-                             data-whitespace="nowrap"                         
-                             data-transform_in="y:[100%];s:500;"
-                             data-transform_out="opacity:0;s:500;"
-                             style="z-index: 5; font-size: 1.5em;"
-                             data-mask_in="x:0px;y:0px;">Voluntary reviewer across the globe.</div>
+                        <div class="tp-caption main-label" data-x="left" data-hoffset="25" data-y="center" data-voffset="-5" data-start="1500" data-whitespace="nowrap" data-transform_in="y:[100%];s:500;" data-transform_out="opacity:0;s:500;" style="z-index: 5; font-size: 1.5em;" data-mask_in="x:0px;y:0px;">Voluntary reviewer across the globe.</div>
 
-                        <div class="tp-caption main-label"
-                             data-x="left" data-hoffset="25"
-                             data-y="center" data-voffset="-55"
-                             data-start="500"
-                             style="z-index: 5; text-transform: uppercase; font-size: 52px;"
-                             data-transform_in="y:[-300%];opacity:0;s:500;">Reviewer across globe</div>
+                        <div class="tp-caption main-label" data-x="left" data-hoffset="25" data-y="center" data-voffset="-55" data-start="500" style="z-index: 5; text-transform: uppercase; font-size: 52px;" data-transform_in="y:[-300%];opacity:0;s:500;">Reviewer across globe</div>
                     </li>
                     <li data-transition="fade">
-                        <img src="<?= BASEURL ?>images/drtheme/slider4.jpg"
-                             alt=""
-                             data-bgposition="center center" 
-                             data-bgfit="cover" 
-                             data-bgrepeat="no-repeat"
-                             class="rev-slidebg">
+                        <img src="<?= BASEURL ?>images/drtheme/slider4.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
-                    <!--    <div class="tp-caption main-label"
+                        <!--    <div class="tp-caption main-label"
                              data-x="left" data-hoffset="25"
                              data-y="center" data-voffset="-5"
                              data-start="1500"
@@ -114,14 +73,9 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                              data-transform_in="y:[-300%];opacity:0;s:500;">Fast and Efficient Publication</div>-->
                     </li>
                     <li data-transition="fade">
-                        <img src="<?= BASEURL ?>images/drtheme/slider3.jpg"
-                             alt=""
-                             data-bgposition="center center" 
-                             data-bgfit="cover" 
-                             data-bgrepeat="no-repeat"
-                             class="rev-slidebg">
+                        <img src="<?= BASEURL ?>images/drtheme/slider3.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg">
 
-                     <!--   <div class="tp-caption main-label"
+                        <!--   <div class="tp-caption main-label"
                              data-x="left" data-hoffset="25"
                              data-y="center" data-voffset="-5"
                              data-start="1500"
@@ -175,8 +129,8 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                     </div>
                     <div class="col-lg-3 box-two background-color-tertiary appear-animation" data-appear-animation="fadeInLeft" data-appear-animation-delay="1800">
                         <h5 class="m-none">
-                            <a href="/grdje/publication-charges" title="">
-                                Processing Charge
+                            <a href="<?= Url::to(['page/pastissue']) ?>" title="">
+                                Archive
                                 <i class="icon-arrow-right-circle icons"></i>
                             </a>
                         </h5>
@@ -190,7 +144,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                         <p><?= $content ?></p>
                     </div>
                     <div class="col-sm-4 col-md-4">
-                        <img src="<?= BASEURL ?>images/drtheme/extradesign2.jpg" alt class="img-responsive box-shadow-custom" /> 
+                        <img src="<?= BASEURL ?>images/drtheme/extradesign2.jpg" alt class="img-responsive box-shadow-custom" />
                     </div>
                 </div>
             </div>
@@ -204,17 +158,19 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                     </div>
                 </div>
                 <div class="brands_products padding-bottom-20">
-                    <div class="table-responsive">          
+                    <div class="table-responsive">
                         <table class="table">
                             <tbody>
                                 <tr class="first_row">
                                     <td>GRDJE</td>
-                                    <td><ul class="nav padding-10">
+                                    <td>
+                                        <ul class="nav padding-10">
                                             <li>
                                                 <a class="alert alert-info" role="alert" href="<?= Url::to(['page/grdjeabout']) ?>">GRD Journal
                                                     For Engineering</a>
                                             </li>
-                                        </ul></td>
+                                        </ul>
+                                    </td>
                                 </tr>
                                 <tr class="second_row">
                                     <td class='image_cell' style="width:17%">
@@ -224,7 +180,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                         <ul>
                                             <li>ISSN: 2455-5703</li>
                                             <li>Impact Factor: 2.018</li>
-                                           <!-- <li>IC Value: 65.67</li>-->
+                                            <!-- <li>IC Value: 65.67</li>-->
                                         </ul>
                                     </td>
                                 </tr>
@@ -265,7 +221,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                     $editors = \backend\models\EditorialBoard::find()->where(['show_in_front' => 1])->all();
 
                     for ($i = 0; $i < count($editors); $i++) {
-                        ?>
+                    ?>
                         <div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -278,48 +234,24 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                                     <img src="<?= BASEURL ?>images/drtheme/avatar.jpg" class="img-responsive" alt="">
                                                 <?php } ?>
                                             </div>
-                                        </div><!--col-md-5-->
+                                        </div>
+                                        <!--col-md-5-->
                                         <div class="col-md-8">
                                             <a href="<?= BASEURL ?>../editorial-board" target="_blank" class="text-decoration-none">
                                                 <span class="custom-thumb-info-inner font-weight-semibold text-lg"><?= $editors[$i]->full_name ?></span><br>
                                             </a>
                                             <span class="custom-thumb-info-type font-weight-light text-md"><strong><?= $editors[$i]->qualification ?></strong> - <strong><?= ($editors[$i]->branch_id) ? $editors[$i]->branch->name : $editors[$i]->branch_name ?></strong></span><br>
                                             <span class="custom-thumb-info-type font-weight-light text-md"><strong>Specialization : </strong><?= $editors[$i]->specialization ?></span><br>
-                                        </div><!--col-md-7-->
-                                    </div><!--row-->
-                                </div><!--col-md-6-->
-                                <?php
-                                if (isset($editors[$i + 1])) {
-                                    $i++;
-                                    ?>
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="team_img">
-                                                    <?php if (isset($editors[$i]->profile_pic) && $editors[$i]->profile_pic) { ?>
-                                                        <img src="<?= BASEURL . "../uploads/reviewer_pic/" . $editors[$i]->profile_pic ?>" class="img-responsive" alt="">
-                                                    <?php } else { ?>
-                                                        <img src="<?= BASEURL ?>images/drtheme/avatar.jpg" class="img-responsive" alt="">
-                                                    <?php } ?>
-                                                </div><!--team_img-->
-                                            </div><!--col-md-5-->
-                                            <div class="col-md-8">
-                                                <a href="<?= BASEURL ?>../editorial-board" target="_blank"  class="text-decoration-none">
-                                                    <span class="custom-thumb-info-inner font-weight-semibold text-lg"><?= $editors[$i]->full_name ?></span><br>
-                                                </a>
-                                                <span class="custom-thumb-info-type font-weight-light text-md"><strong><?= $editors[$i]->qualification ?></strong> - <strong><?= ($editors[$i]->branch_id) ? $editors[$i]->branch->name : $editors[$i]->branch_name ?></strong></span><br>
-                                                <span class="custom-thumb-info-type font-weight-light text-md"><strong>Specialization : </strong><?= $editors[$i]->specialization ?></span><br>
-                                            </div><!--col-md-7-->
-                                        </div><!--row-->
+                                        </div>
+                                        <!--col-md-7-->
                                     </div>
-                                <?php } ?>
-                            </div>
-                            <br>
-                            <div class="row">
+                                    <!--row-->
+                                </div>
+                                <!--col-md-6-->
                                 <?php
                                 if (isset($editors[$i + 1])) {
                                     $i++;
-                                    ?>
+                                ?>
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -330,21 +262,28 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                                         <img src="<?= BASEURL ?>images/drtheme/avatar.jpg" class="img-responsive" alt="">
                                                     <?php } ?>
                                                 </div>
-                                            </div><!--col-md-5-->
+                                                <!--team_img-->
+                                            </div>
+                                            <!--col-md-5-->
                                             <div class="col-md-8">
                                                 <a href="<?= BASEURL ?>../editorial-board" target="_blank" class="text-decoration-none">
                                                     <span class="custom-thumb-info-inner font-weight-semibold text-lg"><?= $editors[$i]->full_name ?></span><br>
                                                 </a>
                                                 <span class="custom-thumb-info-type font-weight-light text-md"><strong><?= $editors[$i]->qualification ?></strong> - <strong><?= ($editors[$i]->branch_id) ? $editors[$i]->branch->name : $editors[$i]->branch_name ?></strong></span><br>
                                                 <span class="custom-thumb-info-type font-weight-light text-md"><strong>Specialization : </strong><?= $editors[$i]->specialization ?></span><br>
-                                            </div><!--col-md-7-->
-                                        </div><!--row-->
-                                    </div><!--col-md-6-->
-                                    <?php
-                                }
+                                            </div>
+                                            <!--col-md-7-->
+                                        </div>
+                                        <!--row-->
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <?php
                                 if (isset($editors[$i + 1])) {
                                     $i++;
-                                    ?>
+                                ?>
                                     <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -354,16 +293,49 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                                     <?php } else { ?>
                                                         <img src="<?= BASEURL ?>images/drtheme/avatar.jpg" class="img-responsive" alt="">
                                                     <?php } ?>
-                                                </div><!--team_img-->
-                                            </div><!--col-md-5-->
+                                                </div>
+                                            </div>
+                                            <!--col-md-5-->
                                             <div class="col-md-8">
-                                                <a href="<?= BASEURL ?>../editorial-board" target="_blank"  class="text-decoration-none">
+                                                <a href="<?= BASEURL ?>../editorial-board" target="_blank" class="text-decoration-none">
                                                     <span class="custom-thumb-info-inner font-weight-semibold text-lg"><?= $editors[$i]->full_name ?></span><br>
                                                 </a>
                                                 <span class="custom-thumb-info-type font-weight-light text-md"><strong><?= $editors[$i]->qualification ?></strong> - <strong><?= ($editors[$i]->branch_id) ? $editors[$i]->branch->name : $editors[$i]->branch_name ?></strong></span><br>
                                                 <span class="custom-thumb-info-type font-weight-light text-md"><strong>Specialization : </strong><?= $editors[$i]->specialization ?></span><br>
-                                            </div><!--col-md-7-->
-                                        </div><!--row-->
+                                            </div>
+                                            <!--col-md-7-->
+                                        </div>
+                                        <!--row-->
+                                    </div>
+                                    <!--col-md-6-->
+                                <?php
+                                }
+                                if (isset($editors[$i + 1])) {
+                                    $i++;
+                                ?>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="team_img">
+                                                    <?php if (isset($editors[$i]->profile_pic) && $editors[$i]->profile_pic) { ?>
+                                                        <img src="<?= BASEURL . "../uploads/reviewer_pic/" . $editors[$i]->profile_pic ?>" class="img-responsive" alt="">
+                                                    <?php } else { ?>
+                                                        <img src="<?= BASEURL ?>images/drtheme/avatar.jpg" class="img-responsive" alt="">
+                                                    <?php } ?>
+                                                </div>
+                                                <!--team_img-->
+                                            </div>
+                                            <!--col-md-5-->
+                                            <div class="col-md-8">
+                                                <a href="<?= BASEURL ?>../editorial-board" target="_blank" class="text-decoration-none">
+                                                    <span class="custom-thumb-info-inner font-weight-semibold text-lg"><?= $editors[$i]->full_name ?></span><br>
+                                                </a>
+                                                <span class="custom-thumb-info-type font-weight-light text-md"><strong><?= $editors[$i]->qualification ?></strong> - <strong><?= ($editors[$i]->branch_id) ? $editors[$i]->branch->name : $editors[$i]->branch_name ?></strong></span><br>
+                                                <span class="custom-thumb-info-type font-weight-light text-md"><strong>Specialization : </strong><?= $editors[$i]->specialization ?></span><br>
+                                            </div>
+                                            <!--col-md-7-->
+                                        </div>
+                                        <!--row-->
                                     </div>
                                 <?php } ?>
                             </div>
@@ -386,12 +358,12 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                 <div class="owl-carousel owl-theme show-nav-hover" data-plugin-options='{"items": 1, "margin": 10,"autoplay":true,"loop":true}'>
                     <!--item-->
                     <div>
-                        <div class="row"  >
+                        <div class="row">
                             <div class="col-md-3 col-sm-6">
                                 <div class="featured-box featured-box-primary featured-box-effect-1">
                                     <div class="box-content">
                                         <i class="icon-featured  fa fa-unlock-alt"></i>
-                                            <!--<img src="<?= BASEURL ?>images/drtheme/openaccess.png" class="icon-featured" alt="">-->
+                                        <!--<img src="<?= BASEURL ?>images/drtheme/openaccess.png" class="icon-featured" alt="">-->
                                         <h4 class="text-uppercase">Open Access</h4>
                                         <p>Freely accessible archives containing previously published research work.</p>
                                         <p><a href="<?= Url::to(['page/pastissue']) ?>" class="lnk-primary learn-more">Archives<i class="fa fa-angle-right"></i></a></p>
@@ -507,7 +479,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                         </div>
                                     </div>
 
-				    <div class="pr-sm pl-sm">
+                                    <div class="pr-sm pl-sm">
                                         <div class="gray_small_img">
                                             <a href="#"><img src="<?= BASEURL ?>images/drtheme/Cornell_University.jpg"></a>
                                         </div>
@@ -527,17 +499,17 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
                                             <a href="https://www.citefactor.org/journal/index/23793/grd-journal-for-engineering#.Xw6xYigzbIU"><img src="<?= BASEURL ?>images/drtheme/citefactor_logo.png"></a>
                                         </div>
                                     </div>
-                                     <div class="pr-sm pl-sm">
+                                    <div class="pr-sm pl-sm">
                                         <div class="gray_small_img">
                                             <a href="http://olddrji.lbp.world/JournalProfile.aspx?jid=2455-5703"><img src="<?= BASEURL ?>images/drtheme/DRJI.png"></a>
                                         </div>
                                     </div>
-                                     <div class="pr-sm pl-sm">
+                                    <div class="pr-sm pl-sm">
                                         <div class="gray_small_img">
                                             <a href="https://www.worldcat.org/title/global-research-and-development-journal-for-engineering/oclc/1127437816&referer=brief_results"><img src="<?= BASEURL ?>images/drtheme/World_Cat.png"></a>
                                         </div>
                                     </div>
-                                  	<div class="pr-sm pl-sm">
+                                    <div class="pr-sm pl-sm">
                                         <div class="gray_small_img">
                                             <a href="https://orcid.org/0000-0002-8266-8439"><img src="<?= BASEURL ?>images/drtheme/orcid.jpeg"></a>
                                         </div>
@@ -615,5 +587,6 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
 <?php if (Yii::$app->controller->id . '/' . Yii::$app->controller->action->id != 'page/index') { ?>
     <?= $content ?>
 <?php } ?>
-<?php // \app\components\RightMenuWidget::widget();  ?>
+<?php // \app\components\RightMenuWidget::widget();  
+?>
 <?php $this->endContent(); ?>
