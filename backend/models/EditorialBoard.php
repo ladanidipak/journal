@@ -26,6 +26,7 @@ use backend\vendors\Common;
  * @property string $country
  * @property string $state
  * @property string $cv
+ * @property string $editor_consent_form
  * @property string $profile_pic
  * @property integer $status
  * @property integer $priority
@@ -76,8 +77,8 @@ class EditorialBoard extends \yii\db\ActiveRecord
             [['status', 'created_dt', 'created_by', 'updated_dt', 'updated_by', 'is_deleted', 'priority', 'show_in_front', 'branch_id', 'hide_in_list', 'show_in_reviewer', 'show_in_editor'], 'integer'],
             [['max_article'], 'string', 'max' => 50],
             [['full_name', 'qualification', 'designation', 'email', 'country', 'state'], 'string', 'max' => 100],
-            [['cv'], 'file', 'skipOnEmpty' => false, 'extensions' => 'doc, docx, pdf', 'maxSize' => 1024 * 1024 * 5, 'on' => ['back_create', 'create']],
-            [['cv'], 'file', 'skipOnEmpty' => true, 'extensions' => 'doc, docx, pdf', 'maxSize' => 1024 * 1024 * 5, 'on' => 'update'],
+            [['cv', 'editor_consent_form'], 'file', 'skipOnEmpty' => false, 'extensions' => 'doc, docx, pdf', 'maxSize' => 1024 * 1024 * 5, 'on' => ['back_create', 'create']],
+            [['cv', 'editor_consent_form'], 'file', 'skipOnEmpty' => true, 'extensions' => 'doc, docx, pdf', 'maxSize' => 1024 * 1024 * 5, 'on' => 'update'],
             [['profile_pic'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, jpeg, png, svg', 'maxSize' => 1024 * 1024 * 5, 'on' => ['back_create', 'create']],
             [['profile_pic'], 'file', 'skipOnEmpty' => true, 'extensions' => 'jpg, jpeg, png, svg', 'maxSize' => 1024 * 1024 * 5, 'on' => 'update'],
             [['phone'], 'string', 'max' => 10],
@@ -110,6 +111,7 @@ class EditorialBoard extends \yii\db\ActiveRecord
             'state' => 'State',
             'country' => 'Country',
             'cv' => 'CV',
+            'editor_consent_form' => 'Editor Consent Form',
             'status' => 'Status',
             'priority' => 'Priority',
             'show_in_front' => 'Show In Front',

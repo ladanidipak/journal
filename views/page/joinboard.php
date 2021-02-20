@@ -30,7 +30,7 @@ use backend\vendors\Common;
                 <h2><span class="text-color-secondary">JOIN EDITORIAL BOARD</span></h2>
             </div>
         </div>
-          <?php $form = ActiveForm::begin(['options'=>['enctype' => 'multipart/form-data'],'enableAjaxValidation' => false, 'enableClientValidation' => true, 'fieldConfig' => ['options' => ['class' => ''], 'checkboxTemplate' => "<label class=\"control-label\">{labelTitle}</label>\n<div>\n{beginLabel}\n{input}\n{endLabel}\n{error}\n{hint}\n</div>"]]); ?>
+        <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data'], 'enableAjaxValidation' => false, 'enableClientValidation' => true, 'fieldConfig' => ['options' => ['class' => ''], 'checkboxTemplate' => "<label class=\"control-label\">{labelTitle}</label>\n<div>\n{beginLabel}\n{input}\n{endLabel}\n{error}\n{hint}\n</div>"]]); ?>
         <div class="row">
             <div class="col-lg-6">
                 <label>&nbsp;</label>
@@ -38,17 +38,17 @@ use backend\vendors\Common;
                     <?= $form->field($model, 'full_name')->textInput(['maxlength' => 100, 'placeholder' => "Full Name"]) ?>
                 </div>
                 <div class="form-group">
-                     <?= $form->field($model, 'desigDrop')->dropDownList(backend\models\Designation::getDesignations(),  Common::getDropDownOptions($model, 'designation')) ?>
+                    <?= $form->field($model, 'desigDrop')->dropDownList(backend\models\Designation::getDesignations(),  Common::getDropDownOptions($model, 'designation')) ?>
                 </div>
-                <div class="form-group">    
+                <div class="form-group">
                     <?= $form->field($model, 'desigInput')->textInput(['maxlength' => 100]) ?>
                     <?= $form->field($model, 'designation')->hiddenInput()->label(false)->error(FALSE) ?>
                 </div>
                 <div class="form-group">
-                   <?= $form->field($model, 'specialization')->textInput(['maxlength' => 255]) ?>
-                </div> 
+                    <?= $form->field($model, 'specialization')->textInput(['maxlength' => 255]) ?>
+                </div>
                 <div class="form-group">
-                   <?= $form->field($model, 'email')->textInput(['maxlength' => 100]) ?>
+                    <?= $form->field($model, 'email')->textInput(['maxlength' => 100]) ?>
                 </div>
                 <div class="form-group">
                     <?= $form->field($model, 'institute_name')->textInput(['maxlength' => 150]) ?>
@@ -59,30 +59,26 @@ use backend\vendors\Common;
                 <div class="form-group">
                     <?= $form->field($model, 'country')->dropDownList(backend\models\Country::getCountries(),  Common::getDropDownOptions($model, 'country')) ?>
                 </div>
-
                 <div class="form-group">
-                    <?php Yii::$app->session->set('__captcha/page/captcha', null); ?>
-                    <?= $form->field($model, 'verifyCode', ['options' => ['class' => '']])->widget(yii\captcha\Captcha::className(), ['captchaAction' => 'page/captcha']) ?>
+                    <?= $form->field($model, 'profile_pic')->fileInput()->label('Upload Profile Pic') ?>
                 </div>
-
             </div>
             <div class="col-lg-6">
                 <label>&nbsp;</label>
                 <div class="form-group">
-                     <?= $form->field($model, 'qualiDrop')->dropDownList(backend\models\Qualification::getQualifications(),  Common::getDropDownOptions($model, 'qualiDrop')) ?>
-                                <?= $form->field($model, 'qualification',['options'=>['style'=>'display:none;']])->textInput(['maxlength' => 100])->label('Qualification (Other)') ?>
+                    <?= $form->field($model, 'qualiDrop')->dropDownList(backend\models\Qualification::getQualifications(),  Common::getDropDownOptions($model, 'qualiDrop')) ?>
+                    <?= $form->field($model, 'qualification', ['options' => ['style' => 'display:none;']])->textInput(['maxlength' => 100])->label('Qualification (Other)') ?>
                 </div>
                 <div class="form-group">
-                     <?= $form->field($model, 'branch_id')->dropDownList(backend\models\Branch::getBranches(), Common::getDropDownOptions($model, 'branch_id')) ?>
-                                <?= $form->field($model, 'branch_name')->textInput(['maxlength' => 255]) ?>
+                    <?= $form->field($model, 'branch_id')->dropDownList(backend\models\Branch::getBranches(), Common::getDropDownOptions($model, 'branch_id')) ?>
+                    <?= $form->field($model, 'branch_name')->textInput(['maxlength' => 255]) ?>
                 </div>
                 <div class="form-group">
-                     <?= $form->field($model, 'max_article')->dropDownList($model::$maxArticleArray, Common::getDropDownOptions($model, 'max_article'))->label("How Many articles we can send you to review per month? (You will be asked before we send the article)") ?>
+                    <?= $form->field($model, 'max_article')->dropDownList($model::$maxArticleArray, Common::getDropDownOptions($model, 'max_article'))->label("How Many articles we can send you to review per month? (You will be asked before we send the article)") ?>
                 </div>
                 <div class="form-group">
-                   <?= $form->field($model, 'phone')->textInput(['maxlength' => 15]) ?>
+                    <?= $form->field($model, 'phone')->textInput(['maxlength' => 15]) ?>
                 </div>
-
                 <div class="form-group">
                     <?= $form->field($model, 'address')->textarea(['maxlength' => 255]) ?>
                 </div>
@@ -93,12 +89,14 @@ use backend\vendors\Common;
                     <?= $form->field($model, 'cv')->fileInput()->label('Upload Your CV') ?>
                 </div>
                 <div class="form-group">
-                    <?= $form->field($model, 'profile_pic')->fileInput()->label('Upload Profile Pic') ?>
+                    <?= $form->field($model, 'editor_consent_form')->fileInput()->label('Upload Your Editor Consent Form <a download style="padding-left:25px;" href="' . DOCURL . "design_elements/documents/Editor_Consent_Form_GRD_Journals.doc" . '">Download Editor Consent Form </a>') ?>
                 </div>
-
+                <div class="form-group">
+                    <?php Yii::$app->session->set('__captcha/page/captcha', null); ?>
+                    <?= $form->field($model, 'verifyCode', ['options' => ['class' => '']])->widget(yii\captcha\Captcha::className(), ['captchaAction' => 'page/captcha']) ?>
+                </div>
             </div>
         </div>
-        
         <div class="form-group"> <?= Html::submitButton('Submit', ['class' => 'btn btn-primary pull-left']) ?></div>
         <?php ActiveForm::end(); ?>
     </div>

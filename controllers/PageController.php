@@ -540,6 +540,8 @@ class PageController extends BaseController
 
             $model->cv = \yii\web\UploadedFile::getInstance($model, 'cv');
             $model->cv->name = time() . "_" . Common::clean($model->cv->name);
+            $model->editor_consent_form = \yii\web\UploadedFile::getInstance($model, 'editor_consent_form');
+            $model->editor_consent_form->name = time() . "_" . Common::clean($model->editor_consent_form->name);
             $profile_pic = \yii\web\UploadedFile::getInstance($model, 'profile_pic');
             if ($profile_pic) {
                 $model->profile_pic = $profile_pic;
@@ -548,8 +550,10 @@ class PageController extends BaseController
             $model->status = 0;
             if ($model->save()) {
                 Common::checkAndCreateDirectory(DOCPATH . "/uploads/cv");
+                Common::checkAndCreateDirectory(DOCPATH . "/uploads/editor_consent_form");
                 Common::checkAndCreateDirectory(DOCPATH . "/uploads/reviewer_pic");
                 $model->cv->saveAs(DOCPATH . "/uploads/cv/" . $model->cv->baseName . '.' . $model->cv->extension);
+                $model->editor_consent_form->saveAs(DOCPATH . "/uploads/editor_consent_form/" . $model->editor_consent_form->baseName . '.' . $model->editor_consent_form->extension);
                 if ($profile_pic) {
                     $model->profile_pic->saveAs(DOCPATH . "/uploads/reviewer_pic/" . $model->profile_pic->baseName . '.' . $model->profile_pic->extension);
                 }

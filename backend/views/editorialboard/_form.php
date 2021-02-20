@@ -94,6 +94,10 @@ $pageTitle = Common::getTitle("{$this->context->id}/{$this->context->action->id}
                         <?= $form->field($model, 'cv', ['options' => ['class' => 'col-sm-12']])->fileInput()->label('Upload Your CV') ?>
                         <?= Html::a($model->cv, DOCURL . "uploads/cv/" . $model->cv, ['target' => '_blank']) ?>
                     </div>
+                    <div class="col-sm-4">
+                        <?= $form->field($model, 'editor_consent_form', ['options' => ['class' => 'col-sm-12']])->fileInput()->label('Upload Your Editor Consent Form <a download href="' . DOCURL . "design_elements/documents/Editor_Consent_Form_GRD_Journals.doc" . '">Download Editor Consent Form </a>') ?>
+                        <?= Html::a($model->editor_consent_form, DOCURL . "uploads/editor_consent_form/" . $model->editor_consent_form, ['target' => '_blank']) ?>
+                    </div>
 
                     <div class="col-sm-4">
                         <?= $form->field($model, 'profile_pic', ['options' => ['class' => 'col-sm-12']])->fileInput()->label('Upload Profile Pic') ?>

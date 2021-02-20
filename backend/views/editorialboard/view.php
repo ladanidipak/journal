@@ -26,8 +26,9 @@ $pageTitle = Common::getTitle("{$this->context->id}/{$this->context->action->id}
             'institute_name',
             'country',
             'state',
-            ['attribute'=>'cv','format'=>'raw','value'=>Html::a($model->cv,DOCURL."uploads/cv/".$model->cv,['target'=>'_blank'])],
-            ['attribute'=>'status','value'=>($model->status)?(Common::translateText('ENABLE_BTN_TEXT')) : (Common::translateText('DISABLE_BTN_TEXT')) ],
+            ['attribute' => 'cv', 'format' => 'raw', 'value' => Html::a($model->cv, DOCURL . "uploads/cv/" . $model->cv, ['target' => '_blank'])],
+            ['attribute' => 'editor_consent_form', 'format' => 'raw', 'value' => Html::a($model->editor_consent_form, DOCURL . "uploads/editor_consent_form/" . $model->editor_consent_form, ['target' => '_blank'])],
+            ['attribute' => 'status', 'value' => ($model->status) ? (Common::translateText('ENABLE_BTN_TEXT')) : (Common::translateText('DISABLE_BTN_TEXT'))],
         ],
     ]) ?>
 
