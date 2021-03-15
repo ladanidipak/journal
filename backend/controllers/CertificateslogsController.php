@@ -88,16 +88,16 @@ class CertificateslogsController extends BaseController
             Common::directoryToZip($root_path . "{$model->id}/certificates.zip", $file_path);
             $url = '';
             if ($url) {
-                return $rool_url . "{$model->id}/certificates.zip";
+                $zip =  $rool_url . "{$model->id}/certificates.zip";
             } else {
-                return $root_path . "{$model->id}/certificates.zip";
+                $zip =  $root_path . "{$model->id}/certificates.zip";
             }
-            // Certificate logic end
 
+            // Certificate logic end
             $root_path = DOCPATH . "/uploads/reviewer_certi/logs/";
             $file_path = $root_path . "{$model->id}";
             //send mail logic start
-            $mailData = ['from' => \Yii::$app->params['fromEmail'], 'to' => $model->email, 'subject' => $model->subject, 'body' => $model->body, 'attachment' => $zip['zip']];
+            $mailData = ['from' => \Yii::$app->params['fromEmail'], 'to' => $model->to, 'subject' => $model->subject, 'body' => $model->body, 'attachment' => $zip];
             $message = PritMailer::mailer($mailData);
             //send mail logic end
             Common::rmdir_recursive($file_path);
