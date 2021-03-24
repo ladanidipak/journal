@@ -213,7 +213,7 @@ $this->beginContent('@app/views/layouts/mainlayout.php');
         </div>
     </section>-->
 
-    <section class="team">
+    <section class="team hide">
         <div class="container">
             <div class="row">
                 <div class="owl-carousel owl-theme nav-bottom rounded-nav pl-xs pr-xs" data-plugin-options='{"items": 1, "loop": true, "dots": false, "nav": true,"autoplay":true}'>

@@ -2,16 +2,16 @@
 
 use yii\helpers\Url;
 ?>
-<footer id="footer" class="m-none" style="background: #34383d"  >
+<footer id="footer" class="m-none" style="background: #34383d">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <h4 class="mb-xlg">Location</h4>
                 <p>
-                    U-6, Swastik House<br>
-                    Opp. Muktjivan Colorlab,<br>
-                    Navarangpura-380009,<br>
-                    Ahmedabad,Gujarat,India
+                    712, 7th Floor, Shivalik Shilp<br>
+                    Iscon cross road<br>
+                    Sarkhej - Gandhinagar Hwy<br>
+                    Ahmedabad, Gujarat 380015
                 </p>
             </div>
             <!--            <div class="col-md-2">
