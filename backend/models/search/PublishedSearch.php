@@ -15,14 +15,15 @@ class PublishedSearch extends Published
     /**
      * @inheritdoc
      */
-     public $search;
+    public $search;
     public $v_voliss_id;
     public $v_conf_id;
+    public $branch_id;
     public function rules()
     {
         return [
             [['id', 'article_id', 'start_page', 'end_page', 'status', 'created_by', 'updated_by', 'is_deleted'], 'integer'],
-            [['title', 'authors', 'country', 'abstract', 'keywords', 'pub_date', 'pdf', 'created_dt', 'updated_dt', 'search', 'v_voliss_id' ,'v_conf_id'], 'safe'],
+            [['title', 'authors', 'country', 'abstract', 'keywords', 'pub_date', 'pdf', 'created_dt', 'updated_dt', 'search', 'v_voliss_id', 'v_conf_id', 'branch_id'], 'safe'],
         ];
     }
 
@@ -45,22 +46,26 @@ class PublishedSearch extends Published
     public function search($params)
     {
         $query = Published::find();
-        $query->joinWith(['article']);
+        $query->joinWith(['article', 'article.branch']);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> [ 
-                           'defaultOrder' => ['published.id'=>SORT_DESC],
-                           'attributes'   => [ 
-                               'published.id'
-                           ], 
-                       ],
-            'pagination'=>[
-                'pageSize'=> Yii::$app->params['defaultPageSize'],
-            ],           
+            'sort' => [
+                'defaultOrder' => ['published.id' => SORT_DESC],
+                'attributes'   => [
+                    'published.id'
+                ],
+            ],
+            'pagination' => [
+                'pageSize' => Yii::$app->params['defaultPageSize'],
+            ],
         ]);
 
         $this->load($params);
+
+        if (!empty($this->branch_id)) {
+            $query->andFilterWhere(['article.branch_id' => $this->branch_id]);
+        }
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to any records when validation fails
@@ -91,8 +96,10 @@ class PublishedSearch extends Published
             ->andFilterWhere(['like', 'published.keywords', $this->keywords])
             ->andFilterWhere(['like', 'published.pdf', $this->pdf]);
 
+
         #Generalized Search 
-         $query->andFilterWhere(['or',
+        $query->andFilterWhere([
+            'or',
             ['like', 'published.title', $this->search],
             ['like', 'published.paper_id', $this->search],
             ['like', 'published.authors', $this->search],
@@ -108,18 +115,20 @@ class PublishedSearch extends Published
     public function frontsearch($params)
     {
         $query = Published::find();
-        $query->joinWith(['article'=>function($query){return $query->joinWith('voliss');}]);
+        $query->joinWith(['article' => function ($query) {
+            return $query->joinWith('voliss');
+        }]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort'=> [
-                'defaultOrder' => ['id'=>SORT_DESC],
+            'sort' => [
+                'defaultOrder' => ['id' => SORT_DESC],
                 'attributes'   => [
                     'id'
                 ],
             ],
-            'pagination'=>[
-                'pageSize'=> Yii::$app->params['defaultPageSize'],
+            'pagination' => [
+                'pageSize' => Yii::$app->params['defaultPageSize'],
             ],
         ]);
 
@@ -136,7 +145,8 @@ class PublishedSearch extends Published
             'published.is_deleted' => $this->is_deleted,
         ]);
 
-        $query->andFilterWhere(['or',
+        $query->andFilterWhere([
+            'or',
             ['like', 'published.paper_id', $this->search],
             ['like', 'published.title', $this->search],
             ['like', 'published.authors', $this->search],

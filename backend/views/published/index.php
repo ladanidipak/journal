@@ -34,21 +34,25 @@ use backend\vendors\Common;
                         'summaryOptions' => ['class' => 'dataTables_info'],
                         'layout' => "{items}\n{summary}\n<div class=\"pull-right\">{pager}</div>",
                         'columns' => [
-
-
                             'article.paper_id',
                             'title',
                             'authors',
+                            [
+                                'header' => 'Branch Name',
+                                'value' => function ($model, $key, $index, $column) {
+                                    return $model->article->branch->name;
+                                }
+                            ],
                             'country',
                             [
-                                'attribute'=>'pdf',
-                                'content'=>function($data){
-									if($data->article->conf_id == 0){
-										$fileDir = "article";
-									}else{
-										$fileDir = "conference";
-									}
-                                    return Html::a("<span class='label label-success'>PDF</span>",DOCURL."uploads/$fileDir/".$data->pdf,['data-pjax'=>0,'target'=>'_blank']);
+                                'attribute' => 'pdf',
+                                'content' => function ($data) {
+                                    if ($data->article->conf_id == 0) {
+                                        $fileDir = "article";
+                                    } else {
+                                        $fileDir = "conference";
+                                    }
+                                    return Html::a("<span class='label label-success'>PDF</span>", DOCURL . "uploads/$fileDir/" . $data->pdf, ['data-pjax' => 0, 'target' => '_blank']);
                                 }
                             ],
                             [
